@@ -1,0 +1,22 @@
+{
+  "deal_id": "DEAL-2025-001",
+  "borrower_validation": {
+    "found": true,
+    "formatted_address": "1234 Industrial Pkwy, Chicago, IL 60601, USA",
+    "latitude": 41.8781,
+    "longitude": -87.6298,
+    "place_type": "Commercial",
+    "confidence": 95,
+    "maps_link": "https://maps.google.com/?q=41.8781,-87.6298"
+  },
+  "vendor_validation": {
+    "found": true,
+    "formatted_address": "5678 US-41, Hammond, IN 46320, USA",
+    "latitude": 41.5834,
+    "longitude": -87.4967,
+    "place_type": "Industrial",
+    "confidence": 100,
+    "maps_link": "https://maps.google.com/?q=41.5834,-87.4967"
+  },
+  "validation_timestamp": "2025-11-03T04:44:55.856193Z"
+}

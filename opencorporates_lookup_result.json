@@ -1,0 +1,50 @@
+{
+  "deal_id": "DEAL-2025-001",
+  "borrower_profile": {
+    "company_name": "Midwest Freight Solutions LLC",
+    "incorporation_date": "2020-03-15",
+    "jurisdiction": "us_il",
+    "registration_number": "LLC-2020-12345",
+    "company_status": "Active",
+    "officers": [
+      {
+        "name": "John Smith",
+        "role": "Managing Member"
+      },
+      {
+        "name": "Sarah Johnson",
+        "role": "Member"
+      }
+    ],
+    "source": "OpenCorporates",
+    "fallback_source": null,
+    "risk_flags": [],
+    "entity_type": "Borrower",
+    "deal_id": "DEAL-2025-001",
+    "last_updated_at": "2025-11-03T04:53:40.701131Z"
+  },
+  "vendor_profile": {
+    "company_name": "Midwest Truck Sales",
+    "incorporation_date": "2015-08-22",
+    "jurisdiction": "us_in",
+    "registration_number": "CORP-2015-67890",
+    "company_status": "Active",
+    "officers": [
+      {
+        "name": "Michael Davis",
+        "role": "President"
+      },
+      {
+        "name": "Jennifer Wilson",
+        "role": "Secretary"
+      }
+    ],
+    "source": "OpenCorporates",
+    "fallback_source": null,
+    "risk_flags": [],
+    "entity_type": "Vendor",
+    "deal_id": "DEAL-2025-001",
+    "last_updated_at": "2025-11-03T04:53:40.701153Z"
+  },
+  "lookup_timestamp": "2025-11-03T04:53:40.701155Z"
+}

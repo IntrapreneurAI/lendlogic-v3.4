@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Transportation Deal Results</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #FFFFFF;
+            font-family: 'Inter', sans-serif;
+            padding: 50px 60px;
+        }
+        
+        .slide-header {
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 38px;
+            font-weight: 800;
+            color: #1A2B4A;
+            line-height: 1.2;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+        
+        .subtitle {
+            font-size: 16px;
+            color: #2C3E50;
+            font-weight: 400;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 35px;
+            margin-bottom: 28px;
+        }
+        
+        .deal-profile {
+            background: linear-gradient(135deg, #1A2B4A 0%, #2C3E50 100%);
+            padding: 28px;
+            color: #FFFFFF;
+        }
+        
+        .profile-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(255,255,255,0.2);
+        }
+        
+        .profile-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #FFFFFF;
+        }
+        
+        .score-badge {
+            background: #00C9A7;
+            color: #1A2B4A;
+            padding: 8px 18px;
+            font-size: 24px;
+            font-weight: 800;
+        }
+        
+        .deal-metrics {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .metric-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .metric-label {
+            font-size: 14px;
+            color: rgba(255,255,255,0.8);
+            font-weight: 600;
+        }
+        
+        .metric-value {
+            font-size: 18px;
+            font-weight: 700;
+            color: #00C9A7;
+        }
+        
+        .equipment-section {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .equipment-label {
+            font-size: 13px;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 8px;
+        }
+        
+        .equipment-value {
+            font-size: 16px;
+            font-weight: 700;
+            color: #FFFFFF;
+        }
+        
+        .matches-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .panel-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1A2B4A;
+            margin-bottom: 8px;
+        }
+        
+        .lender-card {
+            background: #FFFFFF;
+            border: 2px solid #F0F4F8;
+            padding: 14px 18px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 16px;
+            align-items: center;
+        }
+        
+        .lender-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1A2B4A;
+        }
+        
+        .lender-program {
+            font-size: 13px;
+            color: #2C3E50;
+            margin-top: 2px;
+        }
+        
+        .lender-criteria {
+            font-size: 12px;
+            color: #0066FF;
+            font-weight: 600;
+        }
+        
+        .lender-score {
+            font-size: 26px;
+            font-weight: 800;
+            color: #00C9A7;
+            text-align: right;
+        }
+        
+        .outcomes-bar {
+            background: #F0F4F8;
+            padding: 20px 28px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        
+        .outcome-item {
+            text-align: center;
+        }
+        
+        .outcome-value {
+            font-size: 28px;
+            font-weight: 800;
+            color: #0066FF;
+            margin-bottom: 6px;
+        }
+        
+        .outcome-label {
+            font-size: 12px;
+            color: #2C3E50;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .success-indicator {
+            color: #00C9A7;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="slide-header">
+            <h1>Sample Transportation Deal Achieves 90/100 Score with 5 Strong Matches</h1>
+            <p class="subtitle">High-quality $125K semi-truck deal demonstrates algorithm's ability to identify multiple qualified lenders with zero decline risks</p>
+        </div>
+        
+        <div class="content-grid">
+            <div class="deal-profile">
+                <div class="profile-header">
+                    <div class="profile-title">Deal Profile</div>
+                    <div class="score-badge">90/100</div>
+                </div>
+                
+                <div class="deal-metrics">
+                    <div class="metric-row">
+                        <div class="metric-label">Borrower</div>
+                        <div class="metric-value">Transportation Company</div>
+                    </div>
+                    
+                    <div class="metric-row">
+                        <div class="metric-label">FICO Score</div>
+                        <div class="metric-value">720</div>
+                    </div>
+                    
+                    <div class="metric-row">
+                        <div class="metric-label">Time in Business</div>
+                        <div class="metric-value">5.7 years (68 months)</div>
+                    </div>
+                    
+                    <div class="metric-row">
+                        <div class="metric-label">Financing Amount</div>
+                        <div class="metric-value">$125,000</div>
+                    </div>
+                    
+                    <div class="metric-row">
+                        <div class="metric-label">Industry</div>
+                        <div class="metric-value">OTR (Over-the-Road)</div>
+                    </div>
+                </div>
+                
+                <div class="equipment-section">
+                    <div class="equipment-label">EQUIPMENT</div>
+                    <div class="equipment-value">2023 Freightliner Cascadia Semi-Truck</div>
+                </div>
+            </div>
+            
+            <div class="matches-panel">
+                <div class="panel-title">Top 5 Matched Lenders (All Scored 90/100)</div>
+                
+                <div class="lender-card">
+                    <div>
+                        <div class="lender-name">Alliance (AFG)</div>
+                        <div class="lender-program">OTR Program</div>
+                    </div>
+                    <div class="lender-criteria">
+                        Min FICO: 600<br>
+                        Range: $75K-$500K
+                    </div>
+                    <div class="lender-score">90</div>
+                </div>
+                
+                <div class="lender-card">
+                    <div>
+                        <div class="lender-name">Amur</div>
+                        <div class="lender-program">A Credit (Fleet 4-10)</div>
+                    </div>
+                    <div class="lender-criteria">
+                        Min FICO: 700<br>
+                        Range: $20K-$350K
+                    </div>
+                    <div class="lender-score">90</div>
+                </div>
+                
+                <div class="lender-card">
+                    <div>
+                        <div class="lender-name">Amur</div>
+                        <div class="lender-program">B Credit (Fleet 1-3)</div>
+                    </div>
+                    <div class="lender-criteria">
+                        Min FICO: 660<br>
+                        Range: $20K-$250K
+                    </div>
+                    <div class="lender-score">90</div>
+                </div>
+                
+                <div class="lender-card">
+                    <div>
+                        <div class="lender-name">Amur</div>
+                        <div class="lender-program">B Credit (Fleet 4-10)</div>
+                    </div>
+                    <div class="lender-criteria">
+                        Min FICO: 660<br>
+                        Range: $20K-$250K
+                    </div>
+                    <div class="lender-score">90</div>
+                </div>
+                
+                <div class="lender-card">
+                    <div>
+                        <div class="lender-name">Amur</div>
+                        <div class="lender-program">C Credit (Fleet 4-10)</div>
+                    </div>
+                    <div class="lender-criteria">
+                        Min FICO: 620<br>
+                        Range: $20K-$125K
+                    </div>
+                    <div class="lender-score">90</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="outcomes-bar">
+            <div class="outcome-item">
+                <div class="outcome-value success-indicator">0</div>
+                <div class="outcome-label">Decline Risks</div>
+            </div>
+            
+            <div class="outcome-item">
+                <div class="outcome-value">241</div>
+                <div class="outcome-label">Programs Filtered</div>
+            </div>
+            
+            <div class="outcome-item">
+                <div class="outcome-value success-indicator">5</div>
+                <div class="outcome-label">Viable Options</div>
+            </div>
+            
+            <div class="outcome-item">
+                <div class="outcome-value success-indicator">&lt;1s</div>
+                <div class="outcome-label">Processing Time</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

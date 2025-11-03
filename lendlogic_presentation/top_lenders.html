@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Lenders - Part 1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #FFFFFF;
+            font-family: 'Inter', sans-serif;
+            padding: 50px 60px;
+        }
+        
+        .slide-header {
+            margin-bottom: 32px;
+        }
+        
+        h1 {
+            font-size: 40px;
+            font-weight: 800;
+            color: #1A2B4A;
+            line-height: 1.2;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+        
+        .subtitle {
+            font-size: 17px;
+            color: #2C3E50;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+        
+        .content-layout {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 40px;
+        }
+        
+        .lenders-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .lender-card {
+            background: #FFFFFF;
+            border: 2px solid #F0F4F8;
+            padding: 24px 28px;
+            display: grid;
+            grid-template-columns: 50px 1fr auto;
+            gap: 24px;
+            align-items: center;
+        }
+        
+        .rank-badge {
+            width: 50px;
+            height: 50px;
+            background: #1A2B4A;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 800;
+        }
+        
+        .lender-info {
+            flex: 1;
+        }
+        
+        .lender-name {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1A2B4A;
+            margin-bottom: 8px;
+        }
+        
+        .lender-specialty {
+            font-size: 14px;
+            color: #2C3E50;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        
+        .program-bar-container {
+            width: 100%;
+            height: 8px;
+            background: #F0F4F8;
+            margin-top: 10px;
+        }
+        
+        .program-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #0066FF 0%, #00C9A7 100%);
+        }
+        
+        .lender-stats {
+            text-align: right;
+        }
+        
+        .program-count {
+            font-size: 36px;
+            font-weight: 800;
+            color: #0066FF;
+            line-height: 1;
+        }
+        
+        .program-label {
+            font-size: 12px;
+            color: #2C3E50;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 6px;
+        }
+        
+        .market-share {
+            font-size: 16px;
+            color: #00C9A7;
+            font-weight: 700;
+            margin-top: 8px;
+        }
+        
+        .right-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        
+        .image-container {
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+            background: #F0F4F8;
+        }
+        
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .summary-card {
+            background: linear-gradient(135deg, #1A2B4A 0%, #2C3E50 100%);
+            padding: 28px;
+            color: #FFFFFF;
+        }
+        
+        .summary-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 18px;
+            color: #FFFFFF;
+        }
+        
+        .summary-metric {
+            margin-bottom: 16px;
+        }
+        
+        .metric-value-large {
+            font-size: 44px;
+            font-weight: 800;
+            color: #00C9A7;
+            line-height: 1;
+        }
+        
+        .metric-description {
+            font-size: 14px;
+            color: rgba(255,255,255,0.85);
+            margin-top: 8px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="slide-header">
+            <h1>Amur and North Mill Lead Matrix with Deep Program Coverage</h1>
+            <p class="subtitle">Top 3 funders account for 35% of all programs with specialized coverage across credit tiers and industries</p>
+        </div>
+        
+        <div class="content-layout">
+            <div class="lenders-list">
+                <div class="lender-card">
+                    <div class="rank-badge">1</div>
+                    <div class="lender-info">
+                        <div class="lender-name">Amur</div>
+                        <div class="lender-specialty">Dominant player across all credit tiers and industries — OTR, Vocational, Non-Trucking. A/B/C credit programs with fleet size segmentation (1-3, 4-10, 11-25, 26+) enable precise matching.</div>
+                        <div class="program-bar-container">
+                            <div class="program-bar-fill" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                    <div class="lender-stats">
+                        <div class="program-count">49</div>
+                        <div class="program-label">Programs</div>
+                        <div class="market-share">20%</div>
+                    </div>
+                </div>
+                
+                <div class="lender-card">
+                    <div class="rank-badge">2</div>
+                    <div class="lender-info">
+                        <div class="lender-name">North Mill</div>
+                        <div class="lender-specialty">Specialized in small-ticket and startup financing — Strong presence in Non-Trucking and Vocational with lower FICO tolerance (down to 575). Startup-friendly programs with reduced TIB requirements.</div>
+                        <div class="program-bar-container">
+                            <div class="program-bar-fill" style="width: 39%;"></div>
+                        </div>
+                    </div>
+                    <div class="lender-stats">
+                        <div class="program-count">19</div>
+                        <div class="program-label">Programs</div>
+                        <div class="market-share">8%</div>
+                    </div>
+                </div>
+                
+                <div class="lender-card">
+                    <div class="rank-badge">3</div>
+                    <div class="lender-info">
+                        <div class="lender-name">NewLane</div>
+                        <div class="lender-specialty">Balanced portfolio across equipment types — Competitive rate cards in the 8-26% range, amount range $25K-$500K, medical equipment specialization available.</div>
+                        <div class="program-bar-container">
+                            <div class="program-bar-fill" style="width: 35%;"></div>
+                        </div>
+                    </div>
+                    <div class="lender-stats">
+                        <div class="program-count">17</div>
+                        <div class="program-label">Programs</div>
+                        <div class="market-share">7%</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="right-panel">
+                <div class="image-container">
+                    <img src="/home/ubuntu/upload/search_images/sjGuDqCk9k00.jpg" alt="Semi-Truck Financing">
+                </div>
+                
+                <div class="summary-card">
+                    <div class="summary-title">Top 3 Market Share</div>
+                    <div class="summary-metric">
+                        <div class="metric-value-large">35%</div>
+                        <div class="metric-description">of all lending programs controlled by these 3 funders, with Amur alone representing 1 in 5 programs</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

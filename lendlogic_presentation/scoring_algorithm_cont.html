@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industry Specialization and Rate Quality</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #FFFFFF;
+            font-family: 'Inter', sans-serif;
+            padding: 50px 60px;
+        }
+        
+        .slide-header {
+            margin-bottom: 35px;
+        }
+        
+        h1 {
+            font-size: 40px;
+            font-weight: 800;
+            color: #1A2B4A;
+            line-height: 1.2;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+        
+        .subtitle {
+            font-size: 17px;
+            color: #2C3E50;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 40px;
+        }
+        
+        .factor-list {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        
+        .factor-card {
+            background: #FFFFFF;
+            border: 2px solid #F0F4F8;
+            padding: 26px 30px;
+        }
+        
+        .factor-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        
+        .factor-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1A2B4A;
+        }
+        
+        .factor-weight {
+            font-size: 32px;
+            font-weight: 800;
+            color: #0066FF;
+        }
+        
+        .factor-bar {
+            width: 100%;
+            height: 10px;
+            background: #F0F4F8;
+            margin-bottom: 14px;
+        }
+        
+        .factor-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #0066FF 0%, #00C9A7 100%);
+        }
+        
+        .factor-details {
+            font-size: 15px;
+            color: #2C3E50;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        
+        .factor-range {
+            font-size: 14px;
+            color: #0066FF;
+            font-weight: 600;
+        }
+        
+        .performance-panel {
+            background: linear-gradient(135deg, #1A2B4A 0%, #2C3E50 100%);
+            padding: 32px;
+            color: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .panel-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 26px;
+            color: #FFFFFF;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 28px;
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 16px;
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .stat-value {
+            font-size: 36px;
+            font-weight: 800;
+            color: #00C9A7;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        
+        .stat-label {
+            font-size: 13px;
+            color: rgba(255,255,255,0.85);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .benefits-section {
+            padding-top: 24px;
+            border-top: 2px solid rgba(255,255,255,0.2);
+        }
+        
+        .benefits-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #00C9A7;
+            margin-bottom: 12px;
+        }
+        
+        .benefits-text {
+            font-size: 14px;
+            color: rgba(255,255,255,0.9);
+            line-height: 1.7;
+        }
+        
+        .completion-badge {
+            background: #00C9A7;
+            color: #1A2B4A;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 700;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="slide-header">
+            <h1>Industry Specialization and Rate Quality Complete the Scoring Model</h1>
+            <p class="subtitle">Final factors add 25% weight and optimize for sector expertise and borrower cost-effectiveness</p>
+        </div>
+        
+        <div class="content-grid">
+            <div class="factor-list">
+                <div class="factor-card">
+                    <div class="factor-header">
+                        <div class="factor-name">4. Industry Specialization</div>
+                        <div class="factor-weight">15%</div>
+                    </div>
+                    <div class="factor-bar">
+                        <div class="factor-bar-fill" style="width: 15%;"></div>
+                    </div>
+                    <div class="factor-details">
+                        Prioritizes lenders with deep expertise in borrower's specific sector. Transportation deals automatically mapped to OTR and Vocational programs for optimal approval rates.
+                    </div>
+                    <div class="factor-range">Primary industry match: 15 points | Secondary match: 5 points</div>
+                </div>
+                
+                <div class="factor-card">
+                    <div class="factor-header">
+                        <div class="factor-name">5. Rate Card Quality</div>
+                        <div class="factor-weight">10%</div>
+                    </div>
+                    <div class="factor-bar">
+                        <div class="factor-bar-fill" style="width: 10%;"></div>
+                    </div>
+                    <div class="factor-details">
+                        Rewards competitive pricing to ensure borrower receives cost-effective financing. Excellent rates (<15%) earn maximum points, good rates (15-25%) earn partial credit.
+                    </div>
+                    <div class="factor-range">Excellent (<15%): 10 points | Good (15-25%): 5 points</div>
+                </div>
+                
+                <div class="completion-badge">
+                    ✓ COMPLETE SCORING SYSTEM: 100% WEIGHTED COVERAGE
+                </div>
+            </div>
+            
+            <div class="performance-panel">
+                <div>
+                    <div class="panel-title">Algorithm Performance Metrics</div>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value">246</div>
+                            <div class="stat-label">Programs Analyzed</div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-value">28</div>
+                            <div class="stat-label">Unique Funders</div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-value">&lt;1s</div>
+                            <div class="stat-label">Processing Time</div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-value">5</div>
+                            <div class="stat-label">Top Matches</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="benefits-section">
+                    <div class="benefits-title">Automated Decline Risk Flagging</div>
+                    <div class="benefits-text">
+                        The algorithm prevents wasted submissions by identifying hard stops (FICO, TIB, amount mismatches) before lender contact. This produces consistent, auditable recommendations and maximizes broker efficiency by focusing only on qualified opportunities.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

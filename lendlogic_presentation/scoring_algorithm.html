@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Five-Factor Scoring System - Part 1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #FFFFFF;
+            font-family: 'Inter', sans-serif;
+            padding: 50px 60px;
+        }
+        
+        .slide-header {
+            margin-bottom: 32px;
+        }
+        
+        h1 {
+            font-size: 40px;
+            font-weight: 800;
+            color: #1A2B4A;
+            line-height: 1.2;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+        
+        .subtitle {
+            font-size: 17px;
+            color: #2C3E50;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 40px;
+        }
+        
+        .factor-list {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        
+        .factor-card {
+            background: #FFFFFF;
+            border: 2px solid #F0F4F8;
+            padding: 20px 24px;
+        }
+        
+        .factor-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .factor-name {
+            font-size: 19px;
+            font-weight: 700;
+            color: #1A2B4A;
+        }
+        
+        .factor-weight {
+            font-size: 30px;
+            font-weight: 800;
+            color: #0066FF;
+        }
+        
+        .factor-bar {
+            width: 100%;
+            height: 8px;
+            background: #F0F4F8;
+            margin-bottom: 10px;
+        }
+        
+        .factor-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #0066FF 0%, #00C9A7 100%);
+        }
+        
+        .factor-details {
+            font-size: 14px;
+            color: #2C3E50;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+        
+        .factor-range {
+            font-size: 13px;
+            color: #0066FF;
+            font-weight: 600;
+        }
+        
+        .right-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .image-container {
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+            background: #F0F4F8;
+        }
+        
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .summary-box {
+            background: linear-gradient(135deg, #1A2B4A 0%, #2C3E50 100%);
+            padding: 26px;
+            color: #FFFFFF;
+        }
+        
+        .summary-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 14px;
+            color: #FFFFFF;
+        }
+        
+        .summary-stat {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .summary-stat:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .stat-label {
+            font-size: 13px;
+            color: rgba(255,255,255,0.85);
+            font-weight: 600;
+        }
+        
+        .stat-value {
+            font-size: 24px;
+            font-weight: 800;
+            color: #00C9A7;
+        }
+        
+        .summary-note {
+            font-size: 13px;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.6;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="slide-header">
+            <h1>Five-Factor Scoring System Drives Precise Lender Matching</h1>
+            <p class="subtitle">Primary factors account for 75% of total score — Hard stop criteria ensure qualification</p>
+        </div>
+        
+        <div class="content-grid">
+            <div class="factor-list">
+                <div class="factor-card">
+                    <div class="factor-header">
+                        <div class="factor-name">1. FICO Score Match</div>
+                        <div class="factor-weight">30%</div>
+                    </div>
+                    <div class="factor-bar">
+                        <div class="factor-bar-fill" style="width: 30%;"></div>
+                    </div>
+                    <div class="factor-details">
+                        Primary credit quality indicator ensures borrower meets minimum lender thresholds. Hard stop if below requirement.
+                    </div>
+                    <div class="factor-range">Matrix Range: 0-750 minimum FICO | Example: 720 FICO qualifies for 85% of programs</div>
+                </div>
+                
+                <div class="factor-card">
+                    <div class="factor-header">
+                        <div class="factor-name">2. Time in Business</div>
+                        <div class="factor-weight">25%</div>
+                    </div>
+                    <div class="factor-bar">
+                        <div class="factor-bar-fill" style="width: 25%;"></div>
+                    </div>
+                    <div class="factor-details">
+                        Validates operational stability and reduces startup risk for lenders. Longer TIB demonstrates proven business model.
+                    </div>
+                    <div class="factor-range">Matrix Range: 0-15 years minimum TIB | Example: 5.7 years meets most programs</div>
+                </div>
+                
+                <div class="factor-card">
+                    <div class="factor-header">
+                        <div class="factor-name">3. Financing Amount</div>
+                        <div class="factor-weight">20%</div>
+                    </div>
+                    <div class="factor-bar">
+                        <div class="factor-bar-fill" style="width: 20%;"></div>
+                    </div>
+                    <div class="factor-details">
+                        Matches deal size to lender capacity and app-only limits. Ensures requests fall within funder's sweet spot.
+                    </div>
+                    <div class="factor-range">Matrix Range: $5K - $1M | Example: $125K deal fits 78% of program ranges</div>
+                </div>
+            </div>
+            
+            <div class="right-panel">
+                <div class="image-container">
+                    <img src="/home/ubuntu/upload/search_images/En6FMotlucm0.jpg" alt="Equipment Financing Process Flow">
+                </div>
+                
+                <div class="summary-box">
+                    <div class="summary-title">Primary Factor Weights</div>
+                    
+                    <div class="summary-stat">
+                        <div class="stat-label">FICO Score Match</div>
+                        <div class="stat-value">30%</div>
+                    </div>
+                    
+                    <div class="summary-stat">
+                        <div class="stat-label">Time in Business</div>
+                        <div class="stat-value">25%</div>
+                    </div>
+                    
+                    <div class="summary-stat">
+                        <div class="stat-label">Financing Amount</div>
+                        <div class="stat-value">20%</div>
+                    </div>
+                    
+                    <div class="summary-note">
+                        <strong>Combined: 75% of total score</strong><br>
+                        These three factors enforce automatic filtering — if a deal fails to meet minimum requirements, the program is excluded from matches.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

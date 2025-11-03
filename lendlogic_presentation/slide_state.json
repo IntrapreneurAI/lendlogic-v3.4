@@ -1,0 +1,60 @@
+{
+  "project_info": {
+    "title": "LendLogic v3.5 Lender Matching Algorithm",
+    "created": 1762147963.8354697,
+    "last_updated": 1762148329.8778462,
+    "total_slides": 6
+  },
+  "slides": {
+    "title_slide": "edited",
+    "scoring_algorithm": "edited",
+    "scoring_algorithm_cont": "edited",
+    "top_lenders": "edited",
+    "top_lenders_cont": "edited",
+    "sample_results": "edited"
+  },
+  "outline": [
+    {
+      "id": "title_slide",
+      "title": "LendLogic v3.5 Lender Matching Algorithm",
+      "summary": "Title slide introducing the presentation on the new intelligent lender matching system with 5-factor scoring methodology",
+      "image_plan": "/home/ubuntu/upload/search_images/au1k7KxLLyl1.png; /home/ubuntu/upload/search_images/YKhA8eaNxPBN.jpg - Slide 1 discusses a Five-Factor Scoring System and a weighted algorithm. Image 5 is a complex diagram representing a neural network or machine learning algorithm, which visually supports the concept of a sophisticated scoring system. Image 4 is a FICO score gauge, which directly relates to the \"FICO Score Match (30% weight)\" factor. Both images support the technical and scoring nature of the slide.",
+      "slide_template_key": ""
+    },
+    {
+      "id": "scoring_algorithm",
+      "title": "Five-Factor Scoring System Drives Precise Lender Matching",
+      "summary": "Overview of the weighted scoring algorithm with the first three primary factors: FICO Score Match (30%), Time in Business (25%), and Financing Amount (20%). Shows the matrix ranges and matching logic for these high-weight factors that drive lender qualification.",
+      "image_plan": "/home/ubuntu/upload/search_images/En6FMotlucm0.jpg - Shows process flow for Alternative Financing and Traditional Equipment Financing, representing the structure of the lending matrix.",
+      "slide_template_key": ""
+    },
+    {
+      "id": "scoring_algorithm_cont",
+      "title": "Industry Specialization and Rate Quality Complete the Scoring Model",
+      "summary": "Continuation showing the final two factors: Industry Specialization (15%) and Rate Card Quality (10%), plus algorithm performance metrics (246 programs analyzed, 28 funders, <1s processing time). Includes automated decline risk flagging benefits and real-time matching capabilities.",
+      "slide_template_key": "",
+      "image_plan": ""
+    },
+    {
+      "id": "top_lenders",
+      "title": "Amur and North Mill Lead Matrix with Deep Program Coverage",
+      "summary": "Analysis of top 3 funders: Amur (49 programs, 20% market share - dominant across all credit tiers with OTR/Vocational/Non-Trucking coverage and fleet size segmentation), North Mill (19 programs, 8% - small-ticket and startup specialist with lower FICO tolerance), and NewLane (17 programs, 7% - balanced portfolio with competitive rates and medical equipment specialization).",
+      "image_plan": "/home/ubuntu/upload/search_images/sjGuDqCk9k00.jpg; /home/ubuntu/upload/search_images/KULmXRU8Sx1f.jpeg - Semi-truck images relate to transportation equipment financing and OTR programs discussed in the lender analysis.",
+      "slide_template_key": ""
+    },
+    {
+      "id": "top_lenders_cont",
+      "title": "360 EF and The Citizens Bank Complete Top 5 with Specialized Approaches",
+      "summary": "Continuation showing remaining top 2 funders: 360 EF (16 programs, 7% - tier-based pricing with homeowner preferences) and The Citizens Bank (14 programs, 6% - conservative traditional bank criteria). Includes market concentration summary (42% controlled by top 5), industry coverage distribution (Non-Trucking 40%, Vocational 30%, OTR 25%, Medical 5%), and market insights about 28 total funders with 8.8 average programs per funder.",
+      "slide_template_key": "",
+      "image_plan": ""
+    },
+    {
+      "id": "sample_results",
+      "title": "Sample Transportation Deal Achieves 90/100 Score with 5 Strong Matches",
+      "summary": "Real-world test results showing $125K semi-truck deal matched to 5 qualified lenders (Alliance AFG, Amur programs) with zero decline risks and detailed scoring rationale.",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    }
+  ]
+}

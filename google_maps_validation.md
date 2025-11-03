@@ -28,7 +28,9 @@ The agent MUST use the API key securely from environment variables. The key itse
 
 ## 4. Output Format
 
-The validation results should be presented in the following Markdown format:
+The validation results can be presented in two formats:
+
+### Format A: Structured Table (Formal)
 
 ```markdown
 **Google Maps Validation**
@@ -44,9 +46,27 @@ The validation results should be presented in the following Markdown format:
 - **Lat/Long:** 41.5834° N, 87.4967° W
 ```
 
-If an address cannot be verified, the output for that entity should be:
+### Format B: Conversational (User-Friendly)
 
-> **[Borrower/Vendor]:** Unverified — confirm manually.
+```markdown
+**Here's what I found on the addresses you gave me:**
+
+**Borrower:** Sunset Hauling – Austin, TX
+✅ I found it on Google Maps
+🧭 It's a commercial location
+📍 Located at latitude 30.2672° N, longitude 97.7431° W
+🔗 [View on Google Maps](https://maps.google.com/?q=30.2672,-97.7431)
+
+**Vendor:** CNC Depot – Dallas, TX
+✅ Found and verified
+🏭 Looks like an industrial facility
+📍 32.7767° N, 96.7970° W
+🔗 [View on Google Maps](https://maps.google.com/?q=32.7767,-96.7970)
+```
+
+If an address cannot be verified, the output should be:
+
+> **[Borrower/Vendor]:** Couldn't confirm this address on Google Maps — might need manual review.
 
 ## 5. Permissions
 

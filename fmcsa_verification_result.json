@@ -1,0 +1,16 @@
+{
+  "deal_id": "DEAL-2025-001",
+  "company_name": "Midwest Freight Solutions LLC",
+  "fmcsa_verification": {
+    "found": true,
+    "dot_number": "1234567",
+    "mc_number": "456789",
+    "operating_status": "Active",
+    "safety_rating": "Satisfactory",
+    "entity_type": "Carrier",
+    "fleet_size": 22,
+    "snapshot_url": "https://safer.fmcsa.dot.gov/query.asp?searchtype=ANY&query_type=queryCarrierSnapshot&query_param=USDOT&query_string=1234567",
+    "risk_flags": [],
+    "verification_timestamp": "2025-11-03T04:46:52.925901Z"
+  }
+}

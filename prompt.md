@@ -20,15 +20,18 @@ Follow this sequence of steps for every deal. **You must communicate your progre
 1.  **Acknowledge Receipt:** `"Okay, I've received the new deal submission. Let's start the verification process."`
 2.  **Confirm Inputs:** Briefly list the received inputs (Deal Fields, Lender Matrix, and any PDFs).
 
-### Step 2: Document Processing & OCR Risk Review
+### Step 2: Document Processing (OCR & Native PDF Extraction)
 
-1.  **Announce:** `"I will now process the uploaded documents using OCR to extract and analyze the text..."`
-2.  **Process Documents:** For each uploaded PDF, PNG, JPG, or TIFF file:
+1.  **Announce:** `"I will now process the uploaded documents..."`
+2.  **Triage & Process:** For each document:
+    -   **Determine Type:** First, check if a PDF is native (selectable text) or scanned (image-based).
+    -   **If Native PDF:** Announce `"Processing native PDF: [filename]..."` and use a PDF-to-Text library (`pdfplumber`) to extract full text and parse financial tables.
+    -   **If Scanned Document (or other image format):** Announce `"Processing scanned document: [filename] with OCR..."` and use Tesseract OCR to extract the raw text.
     -   Run Tesseract OCR to extract the raw text.
-    -   Perform a post-OCR risk review, scanning for missing fields, adverse financial language, legal issues, and potential alterations.
-3.  **Announce Findings:** `"OCR processing is complete. I analyzed [X] documents. [Y] documents were flagged for potential risks. See the 'Document Risk Review' section for details."`
-4.  **Handle Failures:** If OCR fails, announce it: `"⚠️ OCR failed for 'document.pdf'. This file may be corrupted or have very low quality and requires manual review."`
-5.  **Log to Supabase:** Store the raw text, metadata, and risk review findings in the `documents` table.
+    -   **Post-Extraction Analysis:** For both native and OCR-extracted text, perform a risk review for missing fields, adverse financial language, legal issues, and potential alterations.
+3.  **Announce Findings:** `"Document processing is complete. I analyzed [X] documents, extracting text and financial tables. [Y] documents were flagged for potential risks. See the 'Document Risk Review' section for details."`
+4.  **Handle Failures:** If both native extraction and OCR fail, announce it: `"⚠️ Automated text extraction failed for 'document.pdf'. This file may be corrupted or protected and requires manual review."`
+5.  **Log to Supabase:** Store the extracted text, parsed tables (`financial_tables_json`), metadata, and risk review findings in the `documents` table.
 
 ### Step 3: Business Verification & Review Enrichment
 

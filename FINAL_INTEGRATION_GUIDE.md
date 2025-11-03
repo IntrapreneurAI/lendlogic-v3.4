@@ -43,11 +43,13 @@ This guide provides a comprehensive overview of the system architecture, data fl
 2.  Agent acknowledges receipt and confirms inputs
 3.  Data is normalized (trim whitespace, standardize capitalization)
 
-### Phase 2: Document Processing & OCR Risk Review
+### Phase 2: Document Processing (Dual-Path: Native & OCR)
 
--   **Run Tesseract OCR:** Extract raw text from all uploaded documents (PDF, PNG, JPG, TIFF).
+-   **Triage:** Determine if PDFs are native or scanned.
+-   **Native PDF Extraction:** Use `pdfplumber` to extract text and parse financial tables.
+-   **OCR Extraction:** Use Tesseract for scanned documents and other image formats.
 -   **Perform Risk Review:** Scan for missing fields, adverse financial language, legal issues, and alterations.
--   **Log to Supabase:** Store OCR text, metadata, and risk findings in the `documents` table.
+-   **Log to Supabase:** Store extracted text, `financial_tables_json`, metadata, and risk findings in the `documents` table.
 
 ### Phase 3: Business Verification & Enrichment
 

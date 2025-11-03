@@ -1,0 +1,258 @@
+{
+  "document_name": "financial_statement.pdf",
+  "deal_id": "DEAL-2025-001",
+  "pdf_extraction_status": "success",
+  "pdf_type": "native",
+  "pdf_text_raw": "--- Page 1 ---\nMIDWEST FREIGHT SOLUTIONS LLC\nConsolidated Balance Sheet\nAs of December 31, 2023 and 2022\nAssets 2023 2022\nCurrent Assets\nCash and cash equivalents $1,250,000 $980,000\nAccounts receivable $850,000 $720,000\nInventory $420,000 $380,000\nTotal Current Assets $2,520,000 $2,080,000\nProperty, Plant & Equipment $3,800,000 $3,200,000\nLess: Accumulated depreciation ($1,200,000) ($900,000)\nNet PPE $2,600,000 $2,300,000\nTOTAL ASSETS $5,120,000 $4,380,000\nLiabilities & Equity 2023 2022\nCurrent Liabilities\nAccounts payable $620,000 $540,000\nShort-term debt $350,000 $280,000\nTotal Current Liabilities $970,000 $820,000\nLong-term Debt $2,100,000 $1,800,000\nShareholders' Equity $2,050,000 $1,760,000\nTOTAL LIABILITIES & EQUITY $5,120,000 $4,380,000\n\n--- Page 2 ---\nMIDWEST FREIGHT SOLUTIONS LLC\nConsolidated Statement of Income\nFor the Year Ended December 31, 2023\nItem Amount\nRevenue $5,500,000\nCost of Goods Sold ($3,200,000)\nGross Profit $2,300,000\nOperating Expenses\nSalaries and wages ($850,000)\nRent and utilities ($220,000)\nDepreciation ($300,000)\nOther operating expenses ($180,000)\nTotal Operating Expenses ($1,550,000)\nOperating Income $750,000\nInterest Expense ($120,000)\nNet Income Before Tax $630,000\nIncome Tax Expense ($157,500)\nNET INCOME $472,500",
+  "financial_tables_json": [
+    {
+      "table_name": "Balance Sheet (Table 1)",
+      "page_number": 1,
+      "row_count": 12,
+      "column_count": 3,
+      "data": [
+        [
+          "Assets",
+          "2023",
+          "2022"
+        ],
+        [
+          "Current Assets",
+          "",
+          ""
+        ],
+        [
+          "Cash and cash equivalents",
+          "$1,250,000",
+          "$980,000"
+        ],
+        [
+          "Accounts receivable",
+          "$850,000",
+          "$720,000"
+        ],
+        [
+          "Inventory",
+          "$420,000",
+          "$380,000"
+        ],
+        [
+          "Total Current Assets",
+          "$2,520,000",
+          "$2,080,000"
+        ],
+        [
+          "",
+          "",
+          ""
+        ],
+        [
+          "Property, Plant & Equipment",
+          "$3,800,000",
+          "$3,200,000"
+        ],
+        [
+          "Less: Accumulated depreciation",
+          "($1,200,000)",
+          "($900,000)"
+        ],
+        [
+          "Net PPE",
+          "$2,600,000",
+          "$2,300,000"
+        ],
+        [
+          "",
+          "",
+          ""
+        ],
+        [
+          "TOTAL ASSETS",
+          "$5,120,000",
+          "$4,380,000"
+        ]
+      ]
+    },
+    {
+      "table_name": "Balance Sheet (Table 2)",
+      "page_number": 1,
+      "row_count": 11,
+      "column_count": 3,
+      "data": [
+        [
+          "Liabilities & Equity",
+          "2023",
+          "2022"
+        ],
+        [
+          "Current Liabilities",
+          "",
+          ""
+        ],
+        [
+          "Accounts payable",
+          "$620,000",
+          "$540,000"
+        ],
+        [
+          "Short-term debt",
+          "$350,000",
+          "$280,000"
+        ],
+        [
+          "Total Current Liabilities",
+          "$970,000",
+          "$820,000"
+        ],
+        [
+          "",
+          "",
+          ""
+        ],
+        [
+          "Long-term Debt",
+          "$2,100,000",
+          "$1,800,000"
+        ],
+        [
+          "",
+          "",
+          ""
+        ],
+        [
+          "Shareholders' Equity",
+          "$2,050,000",
+          "$1,760,000"
+        ],
+        [
+          "",
+          "",
+          ""
+        ],
+        [
+          "TOTAL LIABILITIES & EQUITY",
+          "$5,120,000",
+          "$4,380,000"
+        ]
+      ]
+    },
+    {
+      "table_name": "Income Statement",
+      "page_number": 2,
+      "row_count": 21,
+      "column_count": 2,
+      "data": [
+        [
+          "Item",
+          "Amount"
+        ],
+        [
+          "Revenue",
+          "$5,500,000"
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "Cost of Goods Sold",
+          "($3,200,000)"
+        ],
+        [
+          "Gross Profit",
+          "$2,300,000"
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "Operating Expenses",
+          ""
+        ],
+        [
+          "Salaries and wages",
+          "($850,000)"
+        ],
+        [
+          "Rent and utilities",
+          "($220,000)"
+        ],
+        [
+          "Depreciation",
+          "($300,000)"
+        ],
+        [
+          "Other operating expenses",
+          "($180,000)"
+        ],
+        [
+          "Total Operating Expenses",
+          "($1,550,000)"
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "Operating Income",
+          "$750,000"
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "Interest Expense",
+          "($120,000)"
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "Net Income Before Tax",
+          "$630,000"
+        ],
+        [
+          "Income Tax Expense",
+          "($157,500)"
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "NET INCOME",
+          "$472,500"
+        ]
+      ]
+    }
+  ],
+  "table_count": 3,
+  "financial_anomalies": [
+    {
+      "table": "Balance Sheet (Table 1)",
+      "check": "Balance Sheet Equation",
+      "status": "Verified (Assets = Liabilities + Equity)"
+    },
+    {
+      "table": "Balance Sheet (Table 2)",
+      "check": "Balance Sheet Equation",
+      "status": "Verified (Assets = Liabilities + Equity)"
+    },
+    {
+      "table": "Income Statement",
+      "check": "Net Income",
+      "status": "Positive",
+      "value": "$630,000"
+    },
+    {
+      "table": "Income Statement",
+      "check": "Net Income",
+      "status": "Positive",
+      "value": "$472,500"
+    }
+  ],
+  "processed_at": "2025-11-03T05:09:42.347622Z"
+}

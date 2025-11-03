@@ -1,0 +1,236 @@
+{
+  "deal_info": {
+    "deal_id": "DEAL-2025-E2E-001",
+    "submission_date": "2025-11-03",
+    "borrower": {
+      "business_name": "Midwest Freight Solutions LLC",
+      "state": "IL",
+      "city": "Chicago",
+      "address": "1234 Industrial Pkwy, Chicago, IL 60601",
+      "fico_score": 720,
+      "time_in_business_months": 68,
+      "bankruptcy": "No",
+      "industry": "Transportation"
+    },
+    "vendor": {
+      "business_name": "Midwest Truck Sales",
+      "state": "IN",
+      "city": "Hammond",
+      "address": "5678 US-41, Hammond, IN 46320",
+      "vendor_type": "Dealer"
+    },
+    "equipment": {
+      "type": "Semi-Truck",
+      "year": 2023,
+      "amount": 125000,
+      "description": "Freightliner Cascadia"
+    },
+    "documents": {
+      "application_pdf": "application_midwest_freight.pdf",
+      "invoice_pdf": "invoice_midwest_truck.pdf",
+      "financial_statement_pdf": "financials_2023.pdf"
+    },
+    "timeline": "Standard",
+    "docs_ready": true
+  },
+  "processing_timestamp": "2025-11-03T05:21:35.837370Z",
+  "module_1_documents": {
+    "documents_processed": 3,
+    "documents": [
+      {
+        "filename": "application_midwest_freight.pdf",
+        "type": "Application",
+        "extraction_method": "Native PDF",
+        "status": "Success",
+        "confidence": 95.2,
+        "risk_flags": [],
+        "risk_level": "Low"
+      },
+      {
+        "filename": "invoice_midwest_truck.pdf",
+        "type": "Invoice",
+        "extraction_method": "Native PDF",
+        "status": "Success",
+        "confidence": 98.1,
+        "risk_flags": [],
+        "risk_level": "Low"
+      },
+      {
+        "filename": "financials_2023.pdf",
+        "type": "Financial Statement",
+        "extraction_method": "Native PDF + Table Parsing",
+        "status": "Success",
+        "confidence": 92.7,
+        "risk_flags": [],
+        "risk_level": "Low",
+        "tables_extracted": 3
+      }
+    ],
+    "embeddings": {
+      "model": "all-MiniLM-L6-v2",
+      "dimension": 384,
+      "chunks_created": 24,
+      "storage": "PostgreSQL with pgvector"
+    }
+  },
+  "module_2_opencorporates": {
+    "borrower": {
+      "company_name": "Midwest Freight Solutions LLC",
+      "source": "OpenCorporates",
+      "incorporation_date": "2020-03-15",
+      "jurisdiction": "us_il",
+      "registration_number": "LLC-2020-12345",
+      "company_status": "Active",
+      "officers": [
+        {
+          "name": "John Smith",
+          "role": "Managing Member"
+        },
+        {
+          "name": "Sarah Johnson",
+          "role": "Member"
+        }
+      ],
+      "google_review_link": "https://www.google.com/search?q=Midwest+Freight+Solutions+LLC+Chicago+reviews",
+      "linkedin_search_link": "https://www.linkedin.com/search/results/companies/?keywords=Midwest+Freight+Solutions+LLC",
+      "risk_flags": []
+    },
+    "vendor": {
+      "company_name": "Midwest Truck Sales",
+      "source": "OpenCorporates",
+      "incorporation_date": "2015-08-22",
+      "jurisdiction": "us_in",
+      "registration_number": "CORP-2015-67890",
+      "company_status": "Active",
+      "officers": [
+        {
+          "name": "Michael Davis",
+          "role": "President"
+        },
+        {
+          "name": "Jennifer Wilson",
+          "role": "Secretary"
+        }
+      ],
+      "google_review_link": "https://www.google.com/search?q=Midwest+Truck+Sales+Hammond+reviews",
+      "linkedin_search_link": "https://www.linkedin.com/search/results/companies/?keywords=Midwest+Truck+Sales",
+      "risk_flags": []
+    }
+  },
+  "module_3_judgment_risk": {
+    "borrower": {
+      "business_age_months": 68,
+      "business_age_warning": false,
+      "address_concerns": false,
+      "legal_mentions": false,
+      "risk_level": "Low",
+      "risk_flags": [],
+      "notes": "Established business with clean history. No contextual risks identified."
+    },
+    "vendor": {
+      "business_age_months": 123,
+      "business_age_warning": false,
+      "address_concerns": false,
+      "legal_mentions": false,
+      "risk_level": "Low",
+      "risk_flags": [],
+      "notes": "Well-established dealer with clean history. No contextual risks identified."
+    },
+    "rag_context_used": true,
+    "rag_snippets_retrieved": 2
+  },
+  "module_4_google_maps": {
+    "borrower": {
+      "found": true,
+      "formatted_address": "1234 Industrial Pkwy, Chicago, IL 60601, USA",
+      "latitude": 41.8781,
+      "longitude": -87.6298,
+      "place_type": "Commercial",
+      "confidence": 95,
+      "maps_link": "https://maps.google.com/?q=41.8781,-87.6298"
+    },
+    "vendor": {
+      "found": true,
+      "formatted_address": "5678 US-41, Hammond, IN 46320, USA",
+      "latitude": 41.5834,
+      "longitude": -87.4967,
+      "place_type": "Industrial",
+      "confidence": 100,
+      "maps_link": "https://maps.google.com/?q=41.5834,-87.4967"
+    }
+  },
+  "module_5_fmcsa": {
+    "dot_number": "1234567",
+    "mc_number": "456789",
+    "entity_type": "Carrier",
+    "operating_status": "Active",
+    "safety_rating": "Satisfactory",
+    "fleet_size": 22,
+    "safer_snapshot": "https://safer.fmcsa.dot.gov/query.asp?searchtype=ANY&query_type=queryCarrierSnapshot&query_param=USDOT&query_string=1234567",
+    "risk_flags": []
+  },
+  "module_6_rag_context": {
+    "query": "Equipment financing approval criteria for transportation companies with FICO 720",
+    "snippets_retrieved": 3,
+    "context": [
+      {
+        "rank": 1,
+        "source_text": "For transportation companies, minimum FICO score requirement is 680 with at least 24 months in business.",
+        "document_type": "Lending Policy",
+        "similarity_score": 0.61,
+        "source_file": "underwriting_guidelines_2024.pdf"
+      },
+      {
+        "rank": 2,
+        "source_text": "Debt-to-equity ratio should not exceed 3:1 for equipment financing deals above $500,000.",
+        "document_type": "Lending Policy",
+        "similarity_score": 0.45,
+        "source_file": "underwriting_guidelines_2024.pdf"
+      },
+      {
+        "rank": 3,
+        "source_text": "FMCSA safety rating is Satisfactory with no violations in the past 24 months. Fleet size of 22 units is appropriate for revenue level.",
+        "document_type": "Analyst Note",
+        "similarity_score": 0.58,
+        "source_file": "deal_DEAL-2024-156_notes.txt"
+      }
+    ]
+  },
+  "module_7_scoring": {
+    "fico_component": 33.88,
+    "tib_component": 25.0,
+    "docs_component": 15.0,
+    "equipment_component": 14.25,
+    "timeline_component": 4.0,
+    "total_score": 92.13,
+    "classification": "Excellent \ud83d\udcaa"
+  },
+  "module_8_lender_matching": {
+    "matched_lenders": [
+      {
+        "rank": 1,
+        "name": "First National Equipment Finance",
+        "fico_min": 680,
+        "amount_range": "$50K-$500K",
+        "specialization": "Transportation",
+        "approval_likelihood": "High"
+      },
+      {
+        "rank": 2,
+        "name": "Midwest Commercial Bank",
+        "fico_min": 700,
+        "amount_range": "$100K-$1M",
+        "specialization": "General Equipment",
+        "approval_likelihood": "High"
+      },
+      {
+        "rank": 3,
+        "name": "Regional Equipment Funding",
+        "fico_min": 680,
+        "amount_range": "$75K-$750K",
+        "specialization": "Heavy Equipment",
+        "approval_likelihood": "Medium-High"
+      }
+    ]
+  }
+}

@@ -1,0 +1,218 @@
+
+================================================================================
+  LENDLOGIC V3.5 - COMPLETE END-TO-END DEMO
+================================================================================
+
+🎯 Processing Deal: DEAL-2025-E2E-001
+   Borrower: Midwest Freight Solutions LLC
+   Equipment: Semi-Truck (2023)
+   Amount: $125,000
+
+Press Enter to begin processing...
+────────────────────────────────────────────────────────────────────────────────
+MODULE 1: Document Processing & Embedding Generation
+────────────────────────────────────────────────────────────────────────────────
+
+📄 Processing uploaded documents...
+
+✅ application_midwest_freight.pdf
+   Type: Application
+   Method: Native PDF
+   Status: Success (95.2% confidence)
+   Risk Level: Low
+
+✅ invoice_midwest_truck.pdf
+   Type: Invoice
+   Method: Native PDF
+   Status: Success (98.1% confidence)
+   Risk Level: Low
+
+✅ financials_2023.pdf
+   Type: Financial Statement
+   Method: Native PDF + Table Parsing
+   Status: Success (92.7% confidence)
+   Tables Extracted: 3
+   Risk Level: Low
+
+🧠 Generating vector embeddings for all extracted text...
+   Embedding model: all-MiniLM-L6-v2 (384 dimensions)
+   Text chunks created: 24
+   Vectors stored in PostgreSQL (pgvector)
+
+✅ Document processing complete. All documents extracted successfully.
+✅ Vector embeddings generated and stored.
+
+────────────────────────────────────────────────────────────────────────────────
+MODULE 2: OpenCorporates Business Lookup & Review Enrichment
+────────────────────────────────────────────────────────────────────────────────
+
+🔍 Verifying company legitimacy and enriching profiles...
+
+**Borrower: Midwest Freight Solutions LLC**
+✅ Found on OpenCorporates
+   Status: Active
+   Incorporated: 2020-03-15
+   Jurisdiction: us_il
+   Registration #: LLC-2020-12345
+   Officers: John Smith (Managing Member), Sarah Johnson (Member)
+   🔍 Google Reviews: https://www.google.com/search?q=Midwest+Freight+Solutions+LLC+Chicago+reviews
+   💼 LinkedIn: https://www.linkedin.com/search/results/companies/?keywords=Midwest+Freight+Solutions+LLC
+
+**Vendor: Midwest Truck Sales**
+✅ Found on OpenCorporates
+   Status: Active
+   Incorporated: 2015-08-22
+   Jurisdiction: us_in
+   Registration #: CORP-2015-67890
+   Officers: Michael Davis (President), Jennifer Wilson (Secretary)
+   🔍 Google Reviews: https://www.google.com/search?q=Midwest+Truck+Sales+Hammond+reviews
+   💼 LinkedIn: https://www.linkedin.com/search/results/companies/?keywords=Midwest+Truck+Sales
+
+✅ Business verification complete. Both companies verified as active entities.
+
+────────────────────────────────────────────────────────────────────────────────
+MODULE 3: Judgment & Risk Context Analysis
+────────────────────────────────────────────────────────────────────────────────
+
+⚖️ Analyzing verified data for contextual risks...
+
+🧠 Searching for relevant historical data and policy guidelines...
+   Query: 'Transportation company risk assessment guidelines'
+   Retrieved 2 relevant policy snippets (similarity: 52%, 47%)
+
+**Borrower: Midwest Freight Solutions LLC**
+   Business Age: 68 months (established)
+   Address: Physical commercial location ✅
+   Legal History: Clean ✅
+   Risk Level: Low 🟢
+
+**Vendor: Midwest Truck Sales**
+   Business Age: 123 months (established)
+   Address: Physical industrial location ✅
+   Legal History: Clean ✅
+   Risk Level: Low 🟢
+
+✅ Risk context analysis complete. No contextual risk flags identified.
+
+────────────────────────────────────────────────────────────────────────────────
+MODULE 4: Google Maps Address Validation
+────────────────────────────────────────────────────────────────────────────────
+
+📍 Validating physical addresses...
+
+**Borrower: Midwest Freight Solutions LLC**
+✅ Found it. Location is Commercial. Verified at 95% confidence.
+   📍 41.8781° N, -87.6298° W
+   🔗 https://maps.google.com/?q=41.8781,-87.6298
+
+**Vendor: Midwest Truck Sales**
+✅ Found it. Location is Industrial. Verified at 100% confidence.
+   📍 41.5834° N, -87.4967° W
+   🔗 https://maps.google.com/?q=41.5834,-87.4967
+
+✅ Address validation complete. Both locations verified.
+
+────────────────────────────────────────────────────────────────────────────────
+MODULE 5: FMCSA/DOT Verification
+────────────────────────────────────────────────────────────────────────────────
+
+🚛 Since this is a transportation company, checking DOT status with FMCSA...
+
+✅ FMCSA record found for Midwest Freight Solutions LLC
+
+   DOT #: 1234567
+   MC #: 456789
+   Entity Type: Carrier
+   Operating Status: Active ✅
+   Safety Rating: Satisfactory ✅
+   Fleet Size: 22 units
+   SAFER Snapshot: https://safer.fmcsa.dot.gov/query.asp?searchtype=ANY&query_type=queryCarrierSnapshot&query_param=USDOT&query_string=1234567
+
+✅ Status is active, safety rating is satisfactory. No issues.
+
+────────────────────────────────────────────────────────────────────────────────
+MODULE 6: RAG Context Retrieval for Final Decision
+────────────────────────────────────────────────────────────────────────────────
+
+🧠 Retrieving context to support the final lending decision...
+
+📊 Retrieved 3 relevant context snippets:
+
+1. **Lending Policy** (Similarity: 61%)
+   *For transportation companies, minimum FICO score requirement is 680 with at least 24 months in business.*
+   Source: `underwriting_guidelines_2024.pdf`
+
+2. **Lending Policy** (Similarity: 45%)
+   *Debt-to-equity ratio should not exceed 3:1 for equipment financing deals above $500,000.*
+   Source: `underwriting_guidelines_2024.pdf`
+
+3. **Analyst Note** (Similarity: 58%)
+   *FMCSA safety rating is Satisfactory with no violations in the past 24 months. Fleet size of 22 units is appropriate for revenue level.*
+   Source: `deal_DEAL-2024-156_notes.txt`
+
+✅ RAG context retrieved successfully. Historical insights will inform the final decision.
+
+────────────────────────────────────────────────────────────────────────────────
+MODULE 7: LendLogic Scoring & Classification
+────────────────────────────────────────────────────────────────────────────────
+
+📊 Calculating deal score using LendLogic algorithm...
+
+**Score Breakdown:**
+   FICO (40%): 33.88 points
+   Time in Business (25%): 25.00 points
+   Docs Ready (15%): 15.00 points
+   Equipment/Collateral (15%): 14.25 points
+   Timeline (5%): 4.00 points
+
+**Total Score: 92.13 / 100**
+**Classification: Excellent 💪**
+
+✅ Deal scoring complete.
+
+────────────────────────────────────────────────────────────────────────────────
+MODULE 8: Lender Matching
+────────────────────────────────────────────────────────────────────────────────
+
+🏦 Matching to banks from lender matrix...
+
+✅ Matched 3 banks:
+
+1. **First National Equipment Finance**
+   FICO Min: 680
+   Amount Range: $50K-$500K
+   Specialization: Transportation
+   Approval Likelihood: High
+
+2. **Midwest Commercial Bank**
+   FICO Min: 700
+   Amount Range: $100K-$1M
+   Specialization: General Equipment
+   Approval Likelihood: High
+
+3. **Regional Equipment Funding**
+   FICO Min: 680
+   Amount Range: $75K-$750K
+   Specialization: Heavy Equipment
+   Approval Likelihood: Medium-High
+
+✅ Lender matching complete.
+
+================================================================================
+  GENERATING FINAL OUTPUTS
+================================================================================
+
+✅ Complete results saved to: e2e_demo_output/complete_results.json
+
+📝 Generating Internal Stack Rank...
+📝 Generating External Deal Memo...
+
+
+================================================================================
+  DEMO COMPLETE
+================================================================================
+
+✅ All 8 modules executed successfully
+✅ Results saved to: /home/ubuntu/lendlogic-v3.4/e2e_demo_output
+
+Next: Generating formatted deal memo and stack rank...

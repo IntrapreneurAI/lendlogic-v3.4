@@ -1,0 +1,11 @@
+lender_name,lender_type,min_fico,max_ltv,min_time_in_business,bankruptcy_allowed,equipment_types,states_excluded,min_amount,max_amount,avg_rate,funding_speed,notes
+First National Equipment Finance,Bank,680,90,2,No,"Semi Truck|Trailer|Construction Equipment","",25000,500000,8.5,7-10 days,Strong trucking program
+Regional Business Capital,Bank,660,85,1,Yes,"CNC Machine|Manufacturing Equipment|Semi Truck","CA|NY",15000,250000,9.2,5-7 days,Flexible underwriting
+Midwest Commercial Lending,Bank,700,80,3,No,"Semi Truck|Trailer|Agricultural Equipment","",50000,1000000,7.8,10-14 days,Tier 1 credit only
+Capital Equipment Solutions,Bank,640,90,0,Yes,"Construction Equipment|CNC Machine|Medical Equipment","",10000,300000,10.5,3-5 days,Fast funding for startups
+Great Lakes Equipment Finance,Bank,670,85,2,No,"Semi Truck|Trailer|Manufacturing Equipment","",30000,750000,8.9,7-10 days,Regional focus Midwest
+Apex Business Finance,Bank,650,80,1,Yes,"CNC Machine|Semi Truck|Restaurant Equipment","FL|TX",20000,400000,9.8,5-7 days,Good for borderline credit
+Nationwide Equipment Capital,Bank,690,90,2,No,"Semi Truck|Construction Equipment|Agricultural Equipment","",40000,2000000,8.2,10-14 days,Large ticket specialist
+Summit Commercial Finance,Bank,660,85,1,No,"Manufacturing Equipment|CNC Machine|Packaging Equipment","",15000,350000,9.5,7-10 days,Manufacturing focus
+Liberty Equipment Funding,Bank,675,80,2,Yes,"Semi Truck|Trailer|Construction Equipment","CA",25000,500000,8.7,7-10 days,Strong transportation program
+Premier Business Lending,Bank,685,90,3,No,"CNC Machine|Medical Equipment|Technology Equipment","",35000,600000,8.3,10-14 days,Professional services preferred

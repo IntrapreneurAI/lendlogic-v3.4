@@ -1,0 +1,160 @@
+{
+  "task_name": "LendLogic v3.4 – Equipment Finance Lender Matching",
+  "version": "3.4.0",
+  "description": "Matches borrowers to banks using lender matrix only. Performs credit scoring, FMCSA/Google verification, and outputs both internal and external deal views.",
+  "model": "gpt-4o",
+  "task_type": "data_processing",
+  "timeout": 180,
+  "output_format": "markdown",
+
+  "input_files": {
+    "required": [
+      "cleaned_lender_matrix.csv"
+    ],
+    "optional": [
+      "application.pdf",
+      "invoice.pdf"
+    ]
+  },
+
+  "input_fields": {
+    "business_name": {
+      "type": "string",
+      "required": true,
+      "description": "Legal name of the borrowing business"
+    },
+    "state": {
+      "type": "string",
+      "required": true,
+      "description": "Two-letter state code (e.g., IL, CA, TX)"
+    },
+    "fico_score": {
+      "type": "integer",
+      "required": true,
+      "min": 300,
+      "max": 850,
+      "description": "Personal FICO score of business owner"
+    },
+    "time_in_business": {
+      "type": "integer",
+      "required": true,
+      "description": "Years in business (can be 0 for startups)"
+    },
+    "bankruptcy": {
+      "type": "string",
+      "required": true,
+      "enum": ["Yes", "No"],
+      "description": "Bankruptcy history"
+    },
+    "equipment_type": {
+      "type": "string",
+      "required": true,
+      "description": "Type of equipment being financed (e.g., CNC Machine, Semi Truck, Excavator)"
+    },
+    "equipment_year": {
+      "type": "integer",
+      "required": true,
+      "description": "Year of manufacture"
+    },
+    "amount": {
+      "type": "integer",
+      "required": true,
+      "description": "Total financing amount requested in USD"
+    },
+    "vendor_type": {
+      "type": "string",
+      "required": true,
+      "enum": ["Dealer", "Private"],
+      "description": "Type of vendor selling the equipment"
+    },
+    "docs_ready": {
+      "type": "boolean",
+      "required": true,
+      "description": "Whether both application and invoice PDFs are available"
+    },
+    "timeline": {
+      "type": "string",
+      "required": true,
+      "enum": ["Rush", "Standard"],
+      "description": "Urgency of funding requirement"
+    }
+  },
+
+  "scoring_algorithm": {
+    "description": "LendLogic proprietary scoring system",
+    "weights": {
+      "fico": 0.40,
+      "time_in_business": 0.25,
+      "docs": 0.15,
+      "equipment_collateral": 0.15,
+      "timeline_urgency": 0.05
+    },
+    "classifications": {
+      "excellent": {"min": 90, "max": 100, "emoji": "💪"},
+      "strong": {"min": 75, "max": 89, "emoji": "🦾"},
+      "good": {"min": 60, "max": 74, "emoji": "👌"},
+      "borderline": {"min": 50, "max": 59, "emoji": "🛂"},
+      "poor": {"min": 0, "max": 49, "emoji": "👎"}
+    }
+  },
+
+  "external_verification": {
+    "dot_fmcsa": {
+      "enabled": true,
+      "url": "https://safer.fmcsa.dot.gov/",
+      "description": "Verify DOT number and carrier status for transportation equipment"
+    },
+    "google_maps": {
+      "enabled": true,
+      "description": "Validate borrower and vendor addresses"
+    }
+  },
+
+  "lender_matching": {
+    "source": "cleaned_lender_matrix.csv",
+    "filter": "banks_only",
+    "exclude": ["private_lenders", "captives"],
+    "match_count": {"min": 3, "max": 5}
+  },
+
+  "output_views": {
+    "internal": {
+      "name": "Stack Rank",
+      "audience": "broker",
+      "style": "emojis, bullet points, bold headings",
+      "includes": ["score", "classification", "top_banks", "decline_risks", "tactical_next_step"]
+    },
+    "external": {
+      "name": "Deal Memo",
+      "audience": "underwriter",
+      "style": "clean, professional, no emojis",
+      "includes": ["borrower_summary", "equipment_details", "verification_results", "recommended_lenders"]
+    }
+  },
+
+  "permissions": [
+    "file_read",
+    "file_write",
+    "web_scrape",
+    "no_prompt_disclosure"
+  ],
+
+  "browser_mode": true,
+  "replay_mode": false,
+  "max_context_window": 8192,
+
+  "notifications": {
+    "type": "webhook",
+    "description": "Optional: notify Netlify/Supabase backend on completion"
+  },
+
+  "compliance": {
+    "data_retention": "90_days",
+    "pii_handling": "encrypt_at_rest",
+    "audit_logging": true
+  },
+
+  "created_by": "The AI CEO",
+  "created_date": "2025-11-02",
+  "last_updated": "2025-11-02"
+}

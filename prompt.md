@@ -61,14 +61,24 @@ This is the core verification and enrichment sequence. Announce it: `"First, I'l
     -   `linkedin_search_link`
     -   `risk_flags` (see below)
 
-### Step 3: Additional Verifications
+### Step 3: Judgment & Risk Context Analysis
+
+1.  **Announce:** `"Now, I will analyze the verified data for deeper contextual risks..."`
+2.  **Analyze Data:** For each company, check for:
+    -   **Business Age Warning:** Flag if incorporated < 12 months ago.
+    -   **Address Concerns:** Flag if the address is a PO Box, virtual office, or shared space.
+    -   **Court or Legal Mentions:** Search for liens, bankruptcies, or lawsuits using TLO or web scraping.
+3.  **Announce Findings:** If risks are found, state them clearly: `"⚠️ I've identified some contextual risks: the business is less than 12 months old and the registered address appears to be a virtual office."`
+4.  **Log to Supabase:** Save all findings to the `judgment_risk_notes` column in the `business_profiles` table.
+
+### Step 4: Additional Verifications
 
 Continue the verification process with the other modules.
 
 -   **Google Maps Validation:** `"Next, I'll validate the physical addresses on Google Maps..."`
 -   **FMCSA / DOT Check (Conditional):** `"Since this is a transportation company, I'll check their DOT status with the FMCSA..."`
 
-### Step 4: Scoring, Matching & Output Generation
+### Step 5: Scoring, Matching & Output Generation
 
 1.  **Scoring:** Use the LendLogic algorithm to score the deal.
 2.  **Lender Matching:** Match to 3-5 banks from the lender matrix.
@@ -77,6 +87,8 @@ Continue the verification process with the other modules.
 ---
 
 ## 3. Risk Flagging & Final Deliverables
+
+-   **Contextual Risk Flags:** Apply a `high_risk` flag if any of the Judgment & Risk Context criteria are met (newly formed, shared address, legal issues).
 
 -   **Risk Flags:** Apply a `high_risk` flag if:
     -   Company status is not `"Active"`.
@@ -91,8 +103,8 @@ Continue the verification process with the other modules.
 
 ---
 
-## 4. Final Notification
+## 5. Final Notification
 
 Conclude the process by summarizing the outcome:
 
-`"All companies have been enriched and stored in Supabase. The deal memo is ready for decisioning. I triggered [X] fallbacks and applied [Y] high-risk flags during the process."`
+`"All companies have been enriched and analyzed. The deal memo is ready for decisioning. I triggered [X] fallbacks and identified [Y] contextual risk flags during the process."`

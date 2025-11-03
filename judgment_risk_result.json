@@ -1,0 +1,24 @@
+{
+  "deal_id": "DEAL-2025-001",
+  "borrower_judgment": {
+    "company_name": "Midwest Freight Solutions LLC",
+    "entity_type": "Borrower",
+    "judgment_risk_notes": null,
+    "risk_flag_count": 0,
+    "risk_level": "Low",
+    "deal_id": "DEAL-2025-001",
+    "analyzed_at": "2025-11-03T05:02:20.091863Z"
+  },
+  "vendor_judgment": {
+    "company_name": "QuickStart Logistics Inc",
+    "entity_type": "Vendor",
+    "judgment_risk_notes": {
+      "address_concerns": "Non-physical or shared address may indicate operational risk."
+    },
+    "risk_flag_count": 1,
+    "risk_level": "Medium",
+    "deal_id": "DEAL-2025-001",
+    "analyzed_at": "2025-11-03T05:02:20.091872Z"
+  },
+  "analysis_timestamp": "2025-11-03T05:02:20.091874Z"
+}

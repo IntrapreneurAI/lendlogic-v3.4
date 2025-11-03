@@ -94,7 +94,13 @@ DO UPDATE SET ...;
 -   **Google Maps:** Geocode addresses, validate location types
 -   **FMCSA/DOT:** Check transportation company safety ratings
 
-### Phase 4: Scoring & Matching
+### Phase 4: Judgment & Risk Context Analysis
+
+-   **Analyze Data:** Check for business age warnings, address concerns, and legal mentions.
+-   **Announce Findings:** Report any identified contextual risks.
+-   **Log to Supabase:** Save notes to the `judgment_risk_notes` column.
+
+### Phase 5: Scoring & Matching
 
 -   **LendLogic Algorithm:**
     -   FICO: 40%
@@ -143,6 +149,12 @@ DO UPDATE SET ...;
 ---
 
 ## Risk Flagging System
+
+### Contextual Risk Flags
+
+-   ⚖️ **Business Age Warning:** Incorporated < 12 months ago
+-   ⚖️ **Address Concerns:** PO Box, virtual office, or shared address
+-   ⚖️ **Legal Mentions:** Liens, judgments, or bankruptcies found
 
 ### High-Risk Indicators
 

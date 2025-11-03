@@ -1,78 +1,260 @@
-'''# LendLogic v3.4 - Equipment Finance Lender Matching Agent
+# LendLogic v3.5 - Equipment Finance Lender Matching Agent
 
-**Created by:** The AI CEO
-**Version:** 3.4.0
-**Last Updated:** 2025-11-02
+**Version:** 3.5.0  
+**Author:** The AI CEO  
+**Status:** Production Ready
 
-## 1. Overview
+---
 
-LendLogic v3.4 is a sophisticated AI agent designed to streamline the equipment finance deal submission and lender matching process. It automates data extraction, verification, credit scoring, and lender matching, providing brokers with a powerful tool to quickly and accurately assess deals.
+## Overview
 
-The agent ingests borrower and deal information, validates it against external sources, scores the deal based on a proprietary algorithm, and generates two distinct outputs:
+LendLogic v3.5 is an advanced AI agent built for equipment finance professionals. It automates the entire underwriting verification process, from business lookup to lender matching, delivering comprehensive due diligence in minutes instead of hours.
 
--   **Internal Stack Rank:** A broker-facing summary with key insights, risk factors, and recommended lenders, using clear, actionable language and emoji-coded classifications.
--   **External Deal Memo:** A professionally formatted, underwriter-ready document that presents the deal in a clean and concise manner.
+### Key Features
 
-This dual-output approach empowers brokers to make informed decisions internally while maintaining a polished and professional appearance when communicating with lending partners.
+✅ **Real-time Business Verification** via OpenCorporates API  
+✅ **Multi-tier Fallback System** (Web Search → Third-Party APIs → Manual Review)  
+✅ **Review Enrichment** with Google Reviews and LinkedIn links  
+✅ **Address Validation** via Google Maps Geocoding API  
+✅ **DOT/FMCSA Verification** for transportation companies  
+✅ **Automated Risk Flagging** based on verification results  
+✅ **Supabase Integration** for data persistence and analytics  
+✅ **Dual Output Generation** (Internal Stack Rank + External Deal Memo)
 
-## 2. Core Features
+---
 
--   **Automated Data Extraction:** Extracts key data points from uploaded PDF documents (borrower applications and vendor invoices), including both native and scanned files.
--   **Data Normalization & Validation:** Cleans and standardizes all inputs and flags any mismatches between user-provided data and extracted PDF content.
--   **External Data Verification:** Integrates with external services to validate critical information:
-    -   **DOT/FMCSA SAFER:** Verifies Department of Transportation and Federal Motor Carrier Safety Administration records for trucking-related deals.
-    -   **Google Maps:** Validates borrower and vendor addresses to ensure accuracy.
--   **Proprietary Scoring Algorithm:** Utilizes the LendLogic scoring model to assess deal quality based on a weighted average of key factors:
-    -   FICO Score (40%)
-    -   Time in Business (25%)
-    -   Documentation Quality (15%)
-    -   Equipment/Collateral Value (15%)
-    -   Timeline/Urgency (5%)
--   **Intelligent Lender Matching:** Matches deals to a curated list of 3-5 suitable banks from the provided `cleaned_lender_matrix.csv`, excluding private lenders and captives.
--   **Dual-View Output Generation:** Creates both an internal-facing "Stack Rank" and an external-facing "Deal Memo" in Markdown format.
+## Architecture
 
-## 3. How It Works
+### Verification Modules
 
-The agent follows a multi-step process to evaluate each deal:
+1.  **OpenCorporates Business Lookup** (`opencorporates_lookup.md`)
+    -   Primary business verification
+    -   Incorporation date, jurisdiction, officers
+    -   Multi-tier fallback logic
+    -   Review link generation
 
-1.  **Input Processing:** Receives required inputs (lender matrix, deal fields) and optional PDFs.
-2.  **PDF Extraction (Optional):** If PDFs are provided, the agent uses OCR and layout analysis to extract borrower and equipment data.
-3.  **Data Comparison:** Compares user-entered data against extracted PDF data and flags any discrepancies.
-4.  **External Verification:** Performs lookups on the SAFER system and Google Maps.
-5.  **Scoring:** Calculates the LendLogic score and assigns a classification (e.g., Excellent, Strong, Good).
-6.  **Lender Matching:** Filters the lender matrix to identify the top 3-5 bank matches based on the deal's characteristics.
-7.  **Output Generation:** Compiles the analysis into the final internal and external Markdown reports.
+2.  **Google Maps Address Validation** (`google_maps_validation.md`)
+    -   Geocoding for borrower and vendor
+    -   Location type verification
+    -   Confidence scoring
 
-## 4. Technical Architecture
+3.  **FMCSA/DOT Verification** (`fmcsa_lookup.md`)
+    -   Transportation company safety checks
+    -   Fleet size and rating verification
+    -   Risk flagging for inactive/unsafe carriers
 
-This agent is designed to operate within a modern, cloud-native environment:
+### Data Flow
 
--   **Frontend (UI):** Netlify
--   **Backend (Database):** Supabase
--   **Code Repository:** GitHub
--   **Documentation:** Notion
+```
+User Submission (Netlify UI)
+    ↓
+LendLogic Agent (Manus)
+    ↓
+├─ OpenCorporates API → Fallbacks → Review Links
+├─ Google Maps API → Geocoding → Location Types
+└─ FMCSA SAFER → DOT Verification → Safety Ratings
+    ↓
+Supabase Database (business_profiles, deals, verifications)
+    ↓
+Output Generation (Stack Rank + Deal Memo)
+    ↓
+Integration (Notion, GitHub, Netlify Dashboard)
+```
 
-It runs in a secure, sandboxed environment with specific permissions for file I/O and web scraping. All internal logic, prompts, and configurations are protected and cannot be disclosed.
+---
 
-## 5. Usage
+## Repository Structure
 
-To run the agent, provide the following:
+```
+lendlogic-v3.4/
+├── README.md                              ← You are here
+├── FINAL_INTEGRATION_GUIDE.md             ← Complete deployment guide
+├── prompt.md                              ← Core agent instructions
+├── config.json                            ← Agent configuration
+│
+├── opencorporates_lookup.md               ← Business verification docs
+├── opencorporates_lookup_demo.py          ← Demo script (basic)
+├── opencorporates_enriched_demo.py        ← Demo script (with enrichment)
+├── opencorporates_lookup_result.json      ← Sample output
+├── opencorporates_enriched_result.json    ← Sample enriched output
+│
+├── google_maps_validation.md              ← Address validation docs
+├── google_maps_demo.py                    ← Demo script
+├── google_maps_demo_output.md             ← Sample output
+├── google_maps_validation_result.json     ← Sample payload
+│
+├── fmcsa_lookup.md                        ← DOT verification docs
+├── fmcsa_lookup_demo.py                   ← Demo script
+├── fmcsa_lookup_demo_output.md            ← Sample output
+├── fmcsa_verification_result.json         ← Sample payload
+│
+├── supabase_logging.md                    ← Database integration docs
+│
+└── test_inputs/
+    ├── cleaned_lender_matrix.csv          ← Sample lender matrix
+    └── sample_deal.json                   ← Sample deal submission
+```
 
--   **Required Files:**
-    -   `cleaned_lender_matrix.csv`: A CSV file containing the list of approved lenders and their underwriting criteria.
--   **Required Deal Fields:**
-    -   Business Name & State
-    -   FICO Score
-    -   Time in Business
-    -   Bankruptcy History
-    -   Equipment Type & Year
-    -   Amount Requested
-    -   Vendor Type
-    -   Docs Ready Status
-    -   Timeline
--   **Optional Files:**
-    -   `application.pdf`: The borrower's credit application.
-    -   `invoice.pdf`: The vendor's invoice for the equipment.
+---
 
-The agent will process the inputs and return the two Markdown outputs.
-'''
+## Quick Start
+
+### 1. Set Environment Variables
+
+```bash
+export OPENCORPORATES_API_KEY="your_key_here"
+export GOOGLE_MAPS_API_KEY="your_key_here"
+export SUPABASE_URL="your_url_here"
+export SUPABASE_KEY="your_key_here"
+```
+
+### 2. Run Demo Scripts
+
+```bash
+# Business verification with enrichment
+python3.11 opencorporates_enriched_demo.py
+
+# Address validation
+python3.11 google_maps_demo.py
+
+# DOT/FMCSA verification
+python3.11 fmcsa_lookup_demo.py
+```
+
+### 3. Review Sample Outputs
+
+All demo scripts generate JSON payloads ready for Supabase insertion. Review the `*_result.json` files to see the data structure.
+
+---
+
+## Integration Points
+
+### Netlify Dashboard
+- Display enriched company profiles
+- Show review links and risk flags
+- Visualize verification status
+
+### Notion Deal Notes
+- Auto-populate deal pages
+- Embed clickable review links
+- Track verification history
+
+### GitHub Reports
+- Store deal memos as Markdown
+- Version control for audit trails
+
+### Supabase Database
+- Central source of truth
+- Analytics and reporting
+- Real-time data sync
+
+---
+
+## Risk Flagging
+
+The system automatically flags deals based on:
+
+- ⚠️ Company status not "Active"
+- ⚠️ Missing incorporation date
+- ⚠️ No officers listed
+- ⚠️ Fallback sources used
+- ⚠️ FMCSA status issues
+- ⚠️ Poor safety ratings
+
+**Visual Indicators:**
+- 🔴 High Risk (2+ flags)
+- 🟡 Medium Risk (1 flag)
+- 🟢 Low Risk (0 flags)
+
+---
+
+## API Requirements
+
+### Required
+- OpenCorporates API (business verification)
+- Google Maps Geocoding API (address validation)
+- Supabase (data storage)
+
+### Optional
+- TLO API (fallback business data)
+- BBB API (Better Business Bureau data)
+- Trustpilot API (review data)
+
+---
+
+## Output Examples
+
+### Internal Stack Rank (Emoji-Coded)
+
+```markdown
+# Deal Stack Rank 🦾
+
+**Deal:** Midwest Freight Solutions LLC - $150K Semi Truck
+**Score:** 82/100 - Strong 🦾
+**Risk:** 🟢 Low
+
+## Top Lender Match
+💰 **First National Bank** - 90% approval probability
+- Max: $200K ✅
+- FICO Min: 640 ✅
+- TIB Min: 2 years ✅
+
+## Tactical Next Step
+📞 Call First National, mention "transportation equipment" specialty
+```
+
+### External Deal Memo (Professional)
+
+```markdown
+# Equipment Finance Deal Memo
+
+**Borrower:** Midwest Freight Solutions LLC  
+**Amount Requested:** $150,000  
+**Equipment:** 2023 Freightliner Semi Truck
+
+## Business Verification
+
+| Field | Value |
+|---|---|
+| Status | Active ✅ |
+| Incorporation Date | March 15, 2020 |
+| Jurisdiction | Illinois |
+| Officers | John Smith (Managing Member), Sarah Johnson (Member) |
+
+**Due Diligence:**
+- [Google Reviews](https://www.google.com/search?q=...)
+- [LinkedIn Profile](https://www.linkedin.com/search/...)
+
+## Lender Recommendations
+
+1. **First National Bank** - Best fit for transportation equipment
+2. **Regional Equipment Finance** - Competitive rates for established businesses
+3. **Midwest Capital** - Flexible terms for mid-ticket deals
+```
+
+---
+
+## Documentation
+
+- **FINAL_INTEGRATION_GUIDE.md** - Complete deployment guide
+- **prompt.md** - Core agent instructions
+- **Module docs** - Detailed specs for each verification module
+- **Demo scripts** - Working examples with sample data
+
+---
+
+## Support
+
+**Repository:** https://github.com/IntrapreneurAI/lendlogic-v3.4  
+**Issues:** Submit via GitHub Issues  
+**Documentation:** See FINAL_INTEGRATION_GUIDE.md
+
+---
+
+## License
+
+Proprietary - The AI CEO
+
+---
+
+**Built with ❤️ by The AI CEO for the equipment finance industry**

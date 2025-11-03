@@ -1,0 +1,121 @@
+{
+  "deal": {
+    "fico_score": 720,
+    "time_in_business_months": 68,
+    "amount": 125000,
+    "industry": "Transportation",
+    "equipment_type": "Semi-Truck"
+  },
+  "matches": [
+    {
+      "funder": "Alliance (AFG)",
+      "program": "OTR",
+      "industry": "OTR",
+      "score": 90,
+      "min_fico": 600,
+      "min_tib_years": 5.0,
+      "amount_range": "$75,000 - $500,000",
+      "rate_range": 0.5,
+      "down_payment": "0.1",
+      "reasons": [
+        "FICO 720 meets minimum 600",
+        "TIB 5.7 yrs meets minimum 5.0 yrs",
+        "Amount $125,000 within range",
+        "Primary industry match"
+      ],
+      "decline_risks": []
+    },
+    {
+      "funder": "Amur",
+      "program": "B Credit (Fleet 1-3)",
+      "industry": "OTR",
+      "score": 90,
+      "min_fico": 660,
+      "min_tib_years": 2.0,
+      "amount_range": "$20,000 - $250,000",
+      "rate_range": 0.5,
+      "down_payment": null,
+      "reasons": [
+        "FICO 720 meets minimum 660",
+        "TIB 5.7 yrs meets minimum 2.0 yrs",
+        "Amount $125,000 within range",
+        "Primary industry match"
+      ],
+      "decline_risks": []
+    },
+    {
+      "funder": "Amur",
+      "program": "A Credit (Fleet 4-10)",
+      "industry": "OTR",
+      "score": 90,
+      "min_fico": 700,
+      "min_tib_years": 5.0,
+      "amount_range": "$20,000 - $350,000",
+      "rate_range": 0.5,
+      "down_payment": null,
+      "reasons": [
+        "FICO 720 meets minimum 700",
+        "TIB 5.7 yrs meets minimum 5.0 yrs",
+        "Amount $125,000 within range",
+        "Primary industry match"
+      ],
+      "decline_risks": []
+    },
+    {
+      "funder": "Amur",
+      "program": "B Credit (Fleet 4-10)",
+      "industry": "OTR",
+      "score": 90,
+      "min_fico": 660,
+      "min_tib_years": 2.0,
+      "amount_range": "$20,000 - $250,000",
+      "rate_range": 0.5,
+      "down_payment": null,
+      "reasons": [
+        "FICO 720 meets minimum 660",
+        "TIB 5.7 yrs meets minimum 2.0 yrs",
+        "Amount $125,000 within range",
+        "Primary industry match"
+      ],
+      "decline_risks": []
+    },
+    {
+      "funder": "Amur",
+      "program": "C Credit (Fleet 4-10)",
+      "industry": "OTR",
+      "score": 90,
+      "min_fico": 620,
+      "min_tib_years": 2.0,
+      "amount_range": "$20,000 - $125,000",
+      "rate_range": 0.5,
+      "down_payment": null,
+      "reasons": [
+        "FICO 720 meets minimum 620",
+        "TIB 5.7 yrs meets minimum 2.0 yrs",
+        "Amount $125,000 within range",
+        "Primary industry match"
+      ],
+      "decline_risks": []
+    }
+  ],
+  "stats": {
+    "total_programs": 246,
+    "unique_funders": 28,
+    "industries": [
+      "Non-Trucking",
+      "Vocational",
+      "Non-Trucking (Startup)",
+      "OTR",
+      "OTR ",
+      "Medical"
+    ],
+    "fico_range": {
+      "min": 0.0,
+      "max": 750.0
+    },
+    "amount_range": {
+      "min": 5000.0,
+      "max": 1000000.0
+    }
+  }
+}

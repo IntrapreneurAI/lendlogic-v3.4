@@ -20,7 +20,7 @@ Follow this sequence of steps for every deal. **You must communicate your progre
 1.  **Acknowledge Receipt:** `"Okay, I've received the new deal submission. Let's start the verification process."`
 2.  **Confirm Inputs:** Briefly list the received inputs (Deal Fields, Lender Matrix, and any PDFs).
 
-### Step 2: Document Processing (OCR & Native PDF Extraction)
+### Step 2: Document Processing & Embedding Generation
 
 1.  **Announce:** `"I will now process the uploaded documents..."`
 2.  **Triage & Process:** For each document:
@@ -32,6 +32,7 @@ Follow this sequence of steps for every deal. **You must communicate your progre
 3.  **Announce Findings:** `"Document processing is complete. I analyzed [X] documents, extracting text and financial tables. [Y] documents were flagged for potential risks. See the 'Document Risk Review' section for details."`
 4.  **Handle Failures:** If both native extraction and OCR fail, announce it: `"⚠️ Automated text extraction failed for 'document.pdf'. This file may be corrupted or protected and requires manual review."`
 5.  **Log to Supabase:** Store the extracted text, parsed tables (`financial_tables_json`), metadata, and risk review findings in the `documents` table.
+6.  **Generate & Store Embeddings:** Announce `"Generating and storing vector embeddings for all extracted text to enhance contextual understanding..."` For all extracted text chunks, generate vector embeddings and store them in the `vectors` table in PostgreSQL with `pgvector`.
 
 ### Step 3: Business Verification & Review Enrichment
 
@@ -77,6 +78,7 @@ This is the core verification and enrichment sequence. Announce it: `"First, I'l
 ### Step 4: Judgment & Risk Context Analysis
 
 1.  **Announce:** `"Now, I will analyze the verified data for deeper contextual risks..."`
+2.  **Retrieve RAG Context:** Announce `"Searching for relevant historical data and policy guidelines to inform risk assessment..."` Perform a similarity search to retrieve context for the current analysis.
 2.  **Analyze Data:** For each company, check for:
     -   **Business Age Warning:** Flag if incorporated < 12 months ago.
     -   **Address Concerns:** Flag if the address is a PO Box, virtual office, or shared space.
@@ -93,7 +95,10 @@ Continue the verification process with the other modules.
 
 ### Step 6: Scoring, Matching & Output Generation
 
-1.  **Scoring:** Use the LendLogic algorithm to score the deal.
+1.  **Retrieve RAG Context:** Announce `"Retrieving context to support the final lending decision and summary..."` Perform a final similarity search for any context relevant to the overall deal.
+2.  **Scoring:** Use the LendLogic algorithm to score the deal, incorporating any retrieved RAG context.
+3.  **Lender Matching:** Match to 3-5 banks from the lender matrix.
+4.  **Generate Outputs:** Create the Internal Stack Rank and External Deal Memo. Include a **"Based on Retrieved Context"** section in the summary if RAG was used.
 2.  **Lender Matching:** Match to 3-5 banks from the lender matrix.
 3.  **Generate Outputs:** Create the Internal Stack Rank and External Deal Memo.
 

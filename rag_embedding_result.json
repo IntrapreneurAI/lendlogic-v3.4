@@ -1,0 +1,115 @@
+{
+  "total_records": 12,
+  "embedding_dimension": 384,
+  "model_used": "all-MiniLM-L6-v2",
+  "sample_records": [
+    {
+      "id": "07cdb411-0307-41a0-89a3-3d1fd319151a",
+      "deal_id": "1ff12930-60a7-40e9-a60d-0b981088a5f6",
+      "company_id": "2a495e2f-cc4c-4553-a9c1-202d1d5396c3",
+      "document_id": "26c34e69-f009-4445-8072-c4b485fe5ea5",
+      "embedding": [
+        0.00941060297191143,
+        -0.06766630709171295,
+        -0.013021782971918583,
+        -0.02626509964466095,
+        -0.0149745037779212,
+        -0.05468210577964783,
+        0.0038622377905994654,
+        0.05787304788827896,
+        0.011559033766388893,
+        0.040316104888916016,
+        "...",
+        0.04539578780531883,
+        -0.02644374407827854,
+        -0.16813300549983978,
+        -0.008859393186867237,
+        0.02151086926460266
+      ],
+      "embedding_dimension": 384,
+      "source_text": "The company reported total assets of $5,120,000 as of December 31, 2023, representing a 16.9% increase from the prior year.",
+      "document_type": "Financial Statement",
+      "source_file": "financial_statement.pdf",
+      "tags": [
+        "cash_flow",
+        "profitability",
+        "assets",
+        "debt"
+      ],
+      "created_at": "2025-11-03T05:15:37.788107Z",
+      "embedding_note": "Full embedding has 384 dimensions"
+    },
+    {
+      "id": "2cddb763-6c94-4d25-8c31-4350d45cc548",
+      "deal_id": "1ff12930-60a7-40e9-a60d-0b981088a5f6",
+      "company_id": "2a495e2f-cc4c-4553-a9c1-202d1d5396c3",
+      "document_id": "26c34e69-f009-4445-8072-c4b485fe5ea5",
+      "embedding": [
+        -0.029878539964556694,
+        -0.04038182273507118,
+        0.04091942310333252,
+        -0.009681460447609425,
+        -0.030847685411572456,
+        -0.007950070314109325,
+        -0.047727424651384354,
+        0.05168873071670532,
+        -0.07003933936357498,
+        0.04226851835846901,
+        "...",
+        0.033236052840948105,
+        -0.053926821798086166,
+        -0.1292029619216919,
+        -0.07473763823509216,
+        -0.02403021790087223
+      ],
+      "embedding_dimension": 384,
+      "source_text": "Net income for the year ended December 31, 2023 was $472,500, demonstrating strong profitability and operational efficiency.",
+      "document_type": "Financial Statement",
+      "source_file": "financial_statement.pdf",
+      "tags": [
+        "cash_flow",
+        "profitability",
+        "assets",
+        "debt"
+      ],
+      "created_at": "2025-11-03T05:15:37.788128Z",
+      "embedding_note": "Full embedding has 384 dimensions"
+    },
+    {
+      "id": "5232ac32-709d-4493-8857-0bd6c0518df2",
+      "deal_id": "1ff12930-60a7-40e9-a60d-0b981088a5f6",
+      "company_id": "2a495e2f-cc4c-4553-a9c1-202d1d5396c3",
+      "document_id": "26c34e69-f009-4445-8072-c4b485fe5ea5",
+      "embedding": [
+        -0.035518184304237366,
+        -0.0817832499742508,
+        -0.016316497698426247,
+        -0.05573365464806557,
+        -0.07764831185340881,
+        -0.10236916691064835,
+        0.06583411991596222,
+        0.06675153970718384,
+        -0.03607812896370888,
+        0.022978520020842552,
+        "...",
+        0.03320787474513054,
+        -0.07862696051597595,
+        -0.1345866173505783,
+        0.011719373986124992,
+        -0.04201197251677513
+      ],
+      "embedding_dimension": 384,
+      "source_text": "Cash and cash equivalents increased to $1,250,000, providing adequate liquidity for operations and debt service.",
+      "document_type": "Financial Statement",
+      "source_file": "financial_statement.pdf",
+      "tags": [
+        "cash_flow",
+        "profitability",
+        "assets",
+        "debt"
+      ],
+      "created_at": "2025-11-03T05:15:37.788142Z",
+      "embedding_note": "Full embedding has 384 dimensions"
+    }
+  ]
+}

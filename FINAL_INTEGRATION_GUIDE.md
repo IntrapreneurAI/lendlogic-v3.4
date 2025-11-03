@@ -43,17 +43,18 @@ This guide provides a comprehensive overview of the system architecture, data fl
 2.  Agent acknowledges receipt and confirms inputs
 3.  Data is normalized (trim whitespace, standardize capitalization)
 
-### Phase 2: Document Processing (Dual-Path: Native & OCR)
+### Phase 2: Document Processing & Embedding Generation
 
 -   **Triage:** Determine if PDFs are native or scanned.
 -   **Native PDF Extraction:** Use `pdfplumber` to extract text and parse financial tables.
 -   **OCR Extraction:** Use Tesseract for scanned documents and other image formats.
 -   **Perform Risk Review:** Scan for missing fields, adverse financial language, legal issues, and alterations.
 -   **Log to Supabase:** Store extracted text, `financial_tables_json`, metadata, and risk findings in the `documents` table.
+-   **Generate & Store Embeddings:** Create vector embeddings from text chunks and store them in the `vectors` table (`pgvector`).
 
 ### Phase 3: Business Verification & Enrichment
 
-#### Step 2a: OpenCorporates Lookup
+#### Step 3a: OpenCorporates Lookup
 
 -   **API Call:** `https://api.opencorporates.com/v0.4/companies/search?q={company_name}&jurisdiction_code={state}`
 -   **Data Extracted:**
@@ -62,7 +63,7 @@ This guide provides a comprehensive overview of the system architecture, data fl
     -   Company Status
     -   Officer Names & Roles
 
-#### Step 2b: Fallback Logic
+#### Step 3b: Fallback Logic
 
 If OpenCorporates fails:
 
@@ -70,14 +71,14 @@ If OpenCorporates fails:
 2.  **Fallback #2:** Third-party APIs (TLO, BBB, Trustpilot)
 3.  **Fallback #3:** Mark as "Unverified" and flag for manual review
 
-#### Step 2c: Review Enrichment
+#### Step 3c: Review Enrichment
 
 Generate and store:
 
 -   **Google Reviews Link:** `https://www.google.com/search?q={company}+{city}+reviews`
 -   **LinkedIn Search Link:** `https://www.linkedin.com/search/results/companies/?keywords={company}`
 
-#### Step 2d: Supabase Upsert
+#### Step 3d: Supabase Upsert
 
 ```sql
 INSERT INTO business_profiles (
@@ -97,9 +98,10 @@ ON CONFLICT (company_name)
 DO UPDATE SET ...;
 ```
 
+### Phase 4: RAG-Powered Judgment & Risk Context Analysis
 
-
--   **Analyze Data:** Check for business age warnings, address concerns, and legal mentions.
+-   **Retrieve RAG Context:** Perform similarity search to find relevant historical data and policy guidelines.
+-   **Analyze Data:** Check for business age warnings, address concerns, and legal mentions, informed by the retrieved context.
 -   **Announce Findings:** Report any identified contextual risks.
 -   **Log to Supabase:** Save notes to the `judgment_risk_notes` column.
 
@@ -108,14 +110,9 @@ DO UPDATE SET ...;
 -   **Google Maps:** Geocode addresses, validate location types
 -   **FMCSA/DOT:** Check transportation company safety ratings
 
+### Phase 6: RAG-Informed Scoring & Matching
 
-
--   **Analyze Data:** Check for business age warnings, address concerns, and legal mentions.
--   **Announce Findings:** Report any identified contextual risks.
--   **Log to Supabase:** Save notes to the `judgment_risk_notes` column.
-
-### Phase 6: Scoring & Matching
-
+-   **Retrieve RAG Context:** Perform a final similarity search for overall deal context.
 -   **LendLogic Algorithm:**
     -   FICO: 40%
     -   Time in Business: 25%
@@ -129,7 +126,7 @@ DO UPDATE SET ...;
     -   50-59: Borderline 🛂
     -   <50: Poor 👎
 
-### Phase 5: Output Generation
+### Phase 7: Output Generation
 
 -   **Internal Stack Rank** (emoji-coded, tactical)
 -   **External Deal Memo** (professional, underwriter-ready)

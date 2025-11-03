@@ -1,0 +1,123 @@
+{
+  "total_queries": 3,
+  "model_used": "all-MiniLM-L6-v2",
+  "similarity_threshold": 0.3,
+  "results": [
+    {
+      "query": "What are the lending requirements for transportation companies?",
+      "context": "Underwriter is reviewing a new deal from a trucking company",
+      "rag_context": {
+        "rag_context_status": "found",
+        "rag_context_used": [
+          {
+            "rank": 1,
+            "source_text": "For transportation companies, minimum FICO score requirement is 680 with at least 24 months in business.",
+            "document_type": "Lending Policy",
+            "source_file": "underwriting_guidelines_2024.pdf",
+            "similarity_score": 0.4917271137237549,
+            "tags": [
+              "policy",
+              "requirements",
+              "fico",
+              "debt_ratio",
+              "bankruptcy"
+            ]
+          },
+          {
+            "rank": 2,
+            "source_text": "Debt-to-equity ratio should not exceed 3:1 for equipment financing deals above $500,000.",
+            "document_type": "Lending Policy",
+            "source_file": "underwriting_guidelines_2024.pdf",
+            "similarity_score": 0.3950824439525604,
+            "tags": [
+              "policy",
+              "requirements",
+              "fico",
+              "debt_ratio",
+              "bankruptcy"
+            ]
+          },
+          {
+            "rank": 3,
+            "source_text": "Collateral must be appraised at no less than 120% of the loan amount for equipment purchases.",
+            "document_type": "Lending Policy",
+            "source_file": "underwriting_guidelines_2024.pdf",
+            "similarity_score": 0.3757164478302002,
+            "tags": [
+              "policy",
+              "requirements",
+              "fico",
+              "debt_ratio",
+              "bankruptcy"
+            ]
+          }
+        ],
+        "context_summary": "Retrieved 3 relevant context snippets from historical data."
+      },
+      "ai_summary": "**Based on Retrieved Context:**\n\nI found 3 relevant insights from our historical data:\n\n1. **Lending Policy** (Similarity: 49.17%)\n   *For transportation companies, minimum FICO score requirement is 680 with at least 24 months in business.*\n   Source: `underwriting_guidelines_2024.pdf`\n\n2. **Lending Policy** (Similarity: 39.51%)\n   *Debt-to-equity ratio should not exceed 3:1 for equipment financing deals above $500,000.*\n   Source: `underwriting_guidelines_2024.pdf`\n\n3. **Lending Policy** (Similarity: 37.57%)\n   *Collateral must be appraised at no less than 120% of the loan amount for equipment purchases.*\n   Source: `underwriting_guidelines_2024.pdf`\n\n"
+    },
+    {
+      "query": "How should we assess cash flow and liquidity?",
+      "context": "Analyzing financial health of the borrower",
+      "rag_context": {
+        "rag_context_status": "found",
+        "rag_context_used": [
+          {
+            "rank": 1,
+            "source_text": "Cash and cash equivalents increased to $1,250,000, providing adequate liquidity for operations and debt service.",
+            "document_type": "Financial Statement",
+            "source_file": "financial_statement.pdf",
+            "similarity_score": 0.5110307931900024,
+            "tags": [
+              "cash_flow",
+              "profitability",
+              "assets",
+              "debt"
+            ]
+          },
+          {
+            "rank": 2,
+            "source_text": "Borrower demonstrated strong cash flow management with consistent monthly deposits exceeding $150,000.",
+            "document_type": "Analyst Note",
+            "source_file": "deal_DEAL-2024-156_notes.txt",
+            "similarity_score": 0.4596671164035797,
+            "tags": [
+              "cash_flow",
+              "address_concern",
+              "fmcsa",
+              "recommendation",
+              "low_risk"
+            ]
+          }
+        ],
+        "context_summary": "Retrieved 2 relevant context snippets from historical data."
+      },
+      "ai_summary": "**Based on Retrieved Context:**\n\nI found 2 relevant insights from our historical data:\n\n1. **Financial Statement** (Similarity: 51.10%)\n   *Cash and cash equivalents increased to $1,250,000, providing adequate liquidity for operations and debt service.*\n   Source: `financial_statement.pdf`\n\n2. **Analyst Note** (Similarity: 45.97%)\n   *Borrower demonstrated strong cash flow management with consistent monthly deposits exceeding $150,000.*\n   Source: `deal_DEAL-2024-156_notes.txt`\n\n"
+    },
+    {
+      "query": "What are the concerns with shared office addresses?",
+      "context": "Risk assessment for a company with a virtual office",
+      "rag_context": {
+        "rag_context_status": "found",
+        "rag_context_used": [
+          {
+            "rank": 1,
+            "source_text": "Minor concern: registered address appears to be a shared office space, but physical operations confirmed at separate warehouse facility.",
+            "document_type": "Analyst Note",
+            "source_file": "deal_DEAL-2024-156_notes.txt",
+            "similarity_score": 0.5852068066596985,
+            "tags": [
+              "cash_flow",
+              "address_concern",
+              "fmcsa",
+              "recommendation",
+              "low_risk"
+            ]
+          }
+        ],
+        "context_summary": "Retrieved 1 relevant context snippets from historical data."
+      },
+      "ai_summary": "**Based on Retrieved Context:**\n\nI found 1 relevant insights from our historical data:\n\n1. **Analyst Note** (Similarity: 58.52%)\n   *Minor concern: registered address appears to be a shared office space, but physical operations confirmed at separate warehouse facility.*\n   Source: `deal_DEAL-2024-156_notes.txt`\n\n"
+    }
+  ]
+}

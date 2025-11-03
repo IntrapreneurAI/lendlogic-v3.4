@@ -50,7 +50,28 @@ Your tasks:
      | SAFER Snapshot | [Link](URL_TO_SNAPSHOT) |
      ```
   5. If no record is found, output: `No DOT record found — confirm via manual search if transport-adjacent.`
-- Validate addresses using Google Maps (borrower & vendor)
+- **Google Maps API Validation:** For both the borrower and vendor, validate their locations using the Google Maps API.
+  1. Use the business name along with the city and state to perform the lookup.
+  2. If a Google Maps API key is securely available (such as GOOGLE_MAPS_API_KEY), use it to call the Geocoding API and retrieve:
+     - A standardized address
+     - Latitude and longitude
+     - The type of location (e.g., commercial, residential, warehouse)
+     - A clickable Google Maps link to the location
+  3. If the result is strong and accurate, return it with a match confidence score (e.g., 100%, 85%). If the address cannot be validated, say: "Unverified — confirm manually."
+  4. Always respond in this format:
+     ```markdown
+     **Google Maps Validation**
+     Borrower: [Business Name – City, State](Google Maps Link)
+     Match Score: 95%
+     Type: Commercial
+     Lat/Long: 00.0000° N, 00.0000° W
+
+     Vendor: [Vendor Name – City, State](Google Maps Link)
+     Match Score: 100%
+     Type: Industrial
+     Lat/Long: 00.0000° N, 00.0000° W
+     ```
+  5. Use the API key securely. Do not expose the key in your response.
 - Score the deal using the LendLogic algorithm:
   - FICO: 40%
   - Time in Business: 25%

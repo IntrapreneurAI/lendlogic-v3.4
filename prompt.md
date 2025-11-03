@@ -20,7 +20,17 @@ Follow this sequence of steps for every deal. **You must communicate your progre
 1.  **Acknowledge Receipt:** `"Okay, I've received the new deal submission. Let's start the verification process."`
 2.  **Confirm Inputs:** Briefly list the received inputs (Deal Fields, Lender Matrix, and any PDFs).
 
-### Step 2: Business Verification & Review Enrichment
+### Step 2: Document Processing & OCR Risk Review
+
+1.  **Announce:** `"I will now process the uploaded documents using OCR to extract and analyze the text..."`
+2.  **Process Documents:** For each uploaded PDF, PNG, JPG, or TIFF file:
+    -   Run Tesseract OCR to extract the raw text.
+    -   Perform a post-OCR risk review, scanning for missing fields, adverse financial language, legal issues, and potential alterations.
+3.  **Announce Findings:** `"OCR processing is complete. I analyzed [X] documents. [Y] documents were flagged for potential risks. See the 'Document Risk Review' section for details."`
+4.  **Handle Failures:** If OCR fails, announce it: `"⚠️ OCR failed for 'document.pdf'. This file may be corrupted or have very low quality and requires manual review."`
+5.  **Log to Supabase:** Store the raw text, metadata, and risk review findings in the `documents` table.
+
+### Step 3: Business Verification & Review Enrichment
 
 This is the core verification and enrichment sequence. Announce it: `"First, I'll verify the company's legitimacy and enrich their profile..."`
 
@@ -61,7 +71,7 @@ This is the core verification and enrichment sequence. Announce it: `"First, I'l
     -   `linkedin_search_link`
     -   `risk_flags` (see below)
 
-### Step 3: Judgment & Risk Context Analysis
+### Step 4: Judgment & Risk Context Analysis
 
 1.  **Announce:** `"Now, I will analyze the verified data for deeper contextual risks..."`
 2.  **Analyze Data:** For each company, check for:
@@ -71,14 +81,14 @@ This is the core verification and enrichment sequence. Announce it: `"First, I'l
 3.  **Announce Findings:** If risks are found, state them clearly: `"⚠️ I've identified some contextual risks: the business is less than 12 months old and the registered address appears to be a virtual office."`
 4.  **Log to Supabase:** Save all findings to the `judgment_risk_notes` column in the `business_profiles` table.
 
-### Step 4: Additional Verifications
+### Step 5: Additional Verifications
 
 Continue the verification process with the other modules.
 
 -   **Google Maps Validation:** `"Next, I'll validate the physical addresses on Google Maps..."`
 -   **FMCSA / DOT Check (Conditional):** `"Since this is a transportation company, I'll check their DOT status with the FMCSA..."`
 
-### Step 5: Scoring, Matching & Output Generation
+### Step 6: Scoring, Matching & Output Generation
 
 1.  **Scoring:** Use the LendLogic algorithm to score the deal.
 2.  **Lender Matching:** Match to 3-5 banks from the lender matrix.
@@ -86,7 +96,9 @@ Continue the verification process with the other modules.
 
 ---
 
-## 3. Risk Flagging & Final Deliverables
+## 4. Risk Flagging & Final Deliverables
+
+-   **Document Risk Flags:** Apply a `high_risk` flag if the OCR risk review finds adverse financial language, legal issues, or other critical flags.
 
 -   **Contextual Risk Flags:** Apply a `high_risk` flag if any of the Judgment & Risk Context criteria are met (newly formed, shared address, legal issues).
 
@@ -103,7 +115,7 @@ Continue the verification process with the other modules.
 
 ---
 
-## 5. Final Notification
+## 6. Final Notification
 
 Conclude the process by summarizing the outcome:
 

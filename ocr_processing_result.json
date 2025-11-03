@@ -1,0 +1,45 @@
+{
+  "deal_id": "DEAL-2025-001",
+  "documents": [
+    {
+      "document_name": "sample_invoice_clean.pdf",
+      "deal_id": "DEAL-2025-001",
+      "ocr_status": "success",
+      "ocr_metadata": {
+        "page_count": 1,
+        "confidence_score": 58.52,
+        "detected_language": "eng",
+        "text_length": 441
+      },
+      "ocr_text_raw": "--- Page 1 ---\nEQUIPMENT INVOICE\n\nInvoice #: INV-2024-12345\nDate: October 15, 2024\nVendor: CNC Depot\n\nAddress: 5678 Industrial Blvd, Dallas, TX 75201\n\nBILL TO:\nMidwest Freight Solutions LLC\n1234 Industrial Parkway\n\nChicago, IL 60601\n\nEQUIPMENT DETAILS:\nItem: 2023 CNC Machining Center\nModel: XYZ-5000\n\nSerial Number: SN-987654321\n\nTotal Amount: $75,000.00\n\nPayment Terms: Net 30 Days\n\nNote: Past due balances subject to 1.5% monthly interest",
+      "document_risk_review": {
+        "adverse_financial": "Adverse financial language detected (e.g., delinquency, overdue balances)."
+      },
+      "risk_count": 1,
+      "risk_level": "Medium",
+      "processed_at": "2025-11-03T05:06:02.531152Z"
+    },
+    {
+      "document_name": "sample_application_risky.pdf",
+      "deal_id": "DEAL-2025-001",
+      "ocr_status": "success",
+      "ocr_metadata": {
+        "page_count": 1,
+        "confidence_score": 51.02,
+        "detected_language": "eng",
+        "text_length": 271
+      },
+      "ocr_text_raw": "--- Page 1 ---\nCREDIT APPLICATION\n\nBusiness Name: QuickStart Logistics Inc\nDate:\n\nAmount Requested: $150,000\n\nFINANCIAL DISCLOSURES:\nOutstanding Tax Liabilities: $12,500 (Overdue)\nPrevious Bankruptcy: Yes (Discharged 2022)\n\nCollection Notices: 2 active\n\nSignature:\n\nDate:",
+      "document_risk_review": {
+        "adverse_financial": "Adverse financial language detected (e.g., delinquency, overdue balances).",
+        "legal_issues": "Potential legal issues mentioned (e.g., bankruptcy, court orders)."
+      },
+      "risk_count": 2,
+      "risk_level": "Medium",
+      "processed_at": "2025-11-03T05:06:04.281841Z"
+    }
+  ],
+  "total_documents": 2,
+  "documents_with_risks": 2,
+  "processing_timestamp": "2025-11-03T05:06:04.281869Z"
+}

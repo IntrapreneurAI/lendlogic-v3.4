@@ -43,7 +43,13 @@ This guide provides a comprehensive overview of the system architecture, data fl
 2.  Agent acknowledges receipt and confirms inputs
 3.  Data is normalized (trim whitespace, standardize capitalization)
 
-### Phase 2: Business Verification & Enrichment
+### Phase 2: Document Processing & OCR Risk Review
+
+-   **Run Tesseract OCR:** Extract raw text from all uploaded documents (PDF, PNG, JPG, TIFF).
+-   **Perform Risk Review:** Scan for missing fields, adverse financial language, legal issues, and alterations.
+-   **Log to Supabase:** Store OCR text, metadata, and risk findings in the `documents` table.
+
+### Phase 3: Business Verification & Enrichment
 
 #### Step 2a: OpenCorporates Lookup
 
@@ -89,18 +95,24 @@ ON CONFLICT (company_name)
 DO UPDATE SET ...;
 ```
 
-### Phase 3: Additional Verifications
 
--   **Google Maps:** Geocode addresses, validate location types
--   **FMCSA/DOT:** Check transportation company safety ratings
-
-### Phase 4: Judgment & Risk Context Analysis
 
 -   **Analyze Data:** Check for business age warnings, address concerns, and legal mentions.
 -   **Announce Findings:** Report any identified contextual risks.
 -   **Log to Supabase:** Save notes to the `judgment_risk_notes` column.
 
-### Phase 5: Scoring & Matching
+### Phase 5: Additional Verifications
+
+-   **Google Maps:** Geocode addresses, validate location types
+-   **FMCSA/DOT:** Check transportation company safety ratings
+
+
+
+-   **Analyze Data:** Check for business age warnings, address concerns, and legal mentions.
+-   **Announce Findings:** Report any identified contextual risks.
+-   **Log to Supabase:** Save notes to the `judgment_risk_notes` column.
+
+### Phase 6: Scoring & Matching
 
 -   **LendLogic Algorithm:**
     -   FICO: 40%
@@ -149,6 +161,13 @@ DO UPDATE SET ...;
 ---
 
 ## Risk Flagging System
+
+### Document Risk Flags
+
+-   📄 **Missing Fields:** Signature, date, or amount missing
+-   📄 **Adverse Financials:** Delinquency, overdue, lien, etc.
+-   📄 **Legal Issues:** Bankruptcy, judgment, lawsuit, etc.
+-   📄 **Alterations:** Corrected copy, duplicate entries, etc.
 
 ### Contextual Risk Flags
 

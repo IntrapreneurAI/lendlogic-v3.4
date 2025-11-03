@@ -23,7 +23,33 @@ They will also enter key deal fields:
 Your tasks:
 - Read and normalize all inputs
 - If PDFs are provided, extract key fields and compare to user input (flag mismatches)
-- Validate DOT/FMCSA info (via SAFER)
+- **FMCSA / DOT Lookup:** For every deal, check if the business is involved in transportation or uses commercial vehicles. If yes, perform a DOT/SAFER verification using the public FMCSA database:
+  1. Go to: https://safer.fmcsa.dot.gov/CompanySnapshot.aspx
+  2. Search by:
+     - Company Name, OR
+     - DOT Number (if provided)
+  3. Extract the following data:
+     - DOT Number
+     - MC Number
+     - Entity Type (Carrier/Broker/Motor Carrier)
+     - Operating Status (Active, Out of Service, etc.)
+     - Safety Rating
+     - Number of Power Units / Vehicles
+     - Snapshot Link
+  4. Format your output like this:
+     ```markdown
+     **DOT / SAFER Verification**
+     | Field | Value |
+     |---|---|
+     | Status | Active |
+     | DOT # | 3256789 |
+     | MC # | 123456 |
+     | Entity Type | Carrier |
+     | Safety Rating | Satisfactory |
+     | Fleet Size | 22 |
+     | SAFER Snapshot | [Link](URL_TO_SNAPSHOT) |
+     ```
+  5. If no record is found, output: `No DOT record found — confirm via manual search if transport-adjacent.`
 - Validate addresses using Google Maps (borrower & vendor)
 - Score the deal using the LendLogic algorithm:
   - FICO: 40%
